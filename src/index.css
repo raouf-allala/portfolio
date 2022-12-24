@@ -167,6 +167,10 @@ main{
   padding: 1em;
   border-radius: 50px;
 }
+.scroll-btn img{
+  width: 30px;
+  height: 30px;
+}
 .main-socials{
   position: absolute;
   right: 0;
