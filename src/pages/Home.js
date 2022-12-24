@@ -58,7 +58,7 @@ const Home = () => {
             </motion.a>
           </div>
           <div className="main-scroll">
-            <a className="scroll-btn" href="#">
+            <a className="scroll-btn" href="/">
               <img src={Arrow} alt="" />
             </a>
           </div>
@@ -70,7 +70,7 @@ const Home = () => {
                 transition={{ duration: 1, delay: 1 }}
                 className="social"
               >
-                <a href="#">
+                <a href="/">
                   <img src={Icon1} alt="" />
                 </a>
               </motion.li>
@@ -80,7 +80,7 @@ const Home = () => {
                 transition={{ duration: 1 }}
                 className="social"
               >
-                <a href="#">
+                <a href="/">
                   <img src={Icon2} alt="" />
                 </a>
               </motion.li>
