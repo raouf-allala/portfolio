@@ -16,17 +16,17 @@ const Header = () => {
       <div className="container">
         <nav>
           <div className="logo">
-            <a href="#">Raouf.</a>
+            <a href="/">Raouf.</a>
           </div>
           <ul className="nav_list">
             <li>
-              <a href="#">ABOUT ME</a>
+              <a href="/">ABOUT ME</a>
             </li>
             <li>
-              <a href="#">MY WORK</a>
+              <a href="/">MY WORK</a>
             </li>
             <li>
-              <a href="#">CONTACT ME</a>
+              <a href="/">CONTACT ME</a>
             </li>
           </ul>
         </nav>
