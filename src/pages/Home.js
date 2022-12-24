@@ -6,13 +6,25 @@ import Arrow from '../assets/Arrow.svg';
 import Icon1 from '../assets/g-icon.svg';
 import Icon2 from '../assets/l-icon.svg';
 import { motion } from 'framer-motion';
+import Typewriter from 'typewriter-effect';
 const Home = () => {
   return (
     <main>
       <div className="container">
         <div className="qualities">
           <img src={Vector1} alt="" />
-          <p>Passionate</p>
+          <p>
+            <Typewriter
+              options={{
+                strings: ['Passionate', 'Hardworker', 'Fast Learner'],
+                delay: 40,
+                deleteSpeed: 40,
+                pauseFor: 1300,
+                autoStart: true,
+                loop: true,
+              }}
+            />
+          </p>
         </div>
         <div className="main-content">
           <motion.div
