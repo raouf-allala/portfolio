@@ -5,7 +5,6 @@ import Vector2 from '../assets/Vector 11.svg';
 import Arrow from '../assets/Arrow.svg';
 import Icon1 from '../assets/g-icon.svg';
 import Icon2 from '../assets/l-icon.svg';
-import Typical from 'react-typical';
 import { motion } from 'framer-motion';
 const Home = () => {
   return (
@@ -13,13 +12,7 @@ const Home = () => {
       <div className="container">
         <div className="qualities">
           <img src={Vector1} alt="" />
-          <p>
-            <Typical
-              loop={Infinity}
-              wrapper="b"
-              steps={['Passionate', 2000, 'Hardworker', 2000]}
-            />
-          </p>
+          <p>Passionate</p>
         </div>
         <div className="main-content">
           <motion.div
