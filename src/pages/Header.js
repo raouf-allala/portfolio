@@ -18,11 +18,11 @@ const Header = () => {
           <div className="logo">
             {!nav ? (
               <a href="/">
-                <img src={LogoL} />
+                <img src={LogoL} alt="" />
               </a>
             ) : (
               <a href="/">
-                <img src={LogoD} />
+                <img src={LogoD} alt="" />
               </a>
             )}
           </div>
