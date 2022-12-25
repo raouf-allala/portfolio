@@ -12,7 +12,7 @@
   --clr-bg:#23272C;
   --clr-text:#DBFBF1;
   --clr-dark:#1E755A;
-  --clr-light:#B6FFE9;
+  --clr-light:#b6ffe9;
   --clr-text-grey:#DBDBDB;
 }
 
@@ -97,6 +97,7 @@ h1{
   width: 100%;
   padding-block: 2em;
   transition: all 500ms ease;
+  z-index: 1000;
 }
 .nav-active{
   position: fixed;
