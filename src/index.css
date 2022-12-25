@@ -56,7 +56,7 @@ h1{
 }
 .btn{
   color: var(--clr-dark);
-  background-color: var(--clr-text);
+  background-color: var(--clr-light);
   font-weight: 500;
   padding-block: 1em;
   padding-inline: 3em;
@@ -130,8 +130,8 @@ nav a {
   gap: 2.5em;
   margin-left: 8%;
 }
-.logo a{
-  font-size: 1.5rem;
+.logo{
+  width: 70px;
 }
 .layer{
   background-color: var(--clr-light);

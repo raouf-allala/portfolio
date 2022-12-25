@@ -1,5 +1,6 @@
 import { useState } from 'react';
-
+import LogoL from '../assets/RA.png';
+import LogoD from '../assets/Raouf_Allala.png';
 const Header = () => {
   const [nav, setNav] = useState(false);
   const changeBg = () => {
@@ -15,7 +16,15 @@ const Header = () => {
       <div className="container">
         <nav>
           <div className="logo">
-            <a href="/">Raouf.</a>
+            {!nav ? (
+              <a href="/">
+                <img src={LogoL} />
+              </a>
+            ) : (
+              <a href="/">
+                <img src={LogoD} />
+              </a>
+            )}
           </div>
           <ul className="nav_list">
             <li>
