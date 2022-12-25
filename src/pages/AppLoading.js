@@ -2,7 +2,7 @@ import Typewriter from 'typewriter-effect';
 const AppLoading = () => {
   return (
     <div className="page-loading">
-      <h1>
+      <h1 className="p-events-non">
         I'm
         <Typewriter
           options={{

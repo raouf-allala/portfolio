@@ -72,7 +72,9 @@ h1{
 .clr-text{
   color: var(--clr-text);
 }
-
+.p-events-non{
+  pointer-events: none;
+}
 /*                                   header                                       */
 
 .nav{
@@ -117,7 +119,7 @@ nav a {
 
 
 
-/*                                        main                              */
+/*                                        main                            */
 main{
   margin-top: 8em;
 }
@@ -170,13 +172,11 @@ main{
   overflow: hidden;
   font-family: 'Source Code Pro', monospace;
   transform-origin: left;
-  transition: 500ms all ease;
+  transition: 500ms all ease-in-out;
 }
 .main-scroll:hover .scroll-text{
   width: max-content;
   opacity: 1;
-  overflow: visible;
-  transform-origin: left;
 }
 .scroll-btn{
   display: block;
