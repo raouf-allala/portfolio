@@ -97,7 +97,6 @@ h1{
   width: 100%;
   padding-block: 2em;
   transition: all 500ms ease;
-  z-index: 1000;
 }
 .nav-active{
   position: fixed;
@@ -107,6 +106,7 @@ h1{
   background-color: var(--clr-light);
   box-shadow: 2px 2px 2px var(--clr-light);
   transition: all 500ms ease;
+  z-index: 1000;
 }
 .nav-active nav a{
   color: var(--clr-dark);
