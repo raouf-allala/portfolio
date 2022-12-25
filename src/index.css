@@ -154,6 +154,9 @@ nav a {
 .holder:hover .layer:nth-child(4){
   opacity: .3;
 }
+.nav-active .layer{
+  background-color: var(--clr-dark);
+}
 /*                                        main                            */
 main{
   margin-top: 8em;
