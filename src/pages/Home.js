@@ -73,6 +73,9 @@ const Home = () => {
             <a className="scroll-btn" href="/">
               <img src={Arrow} alt="" />
             </a>
+            <div className="scroll-text">
+              <p>Read more about me</p>
+            </div>
           </div>
           <div className="main-socials">
             <ul className="socials">

@@ -22,7 +22,7 @@ body{
   font-family: "Montserrat", sans-serif;
   background-color: var(--clr-bg);
   overflow-x: hidden;
-  color: var(--clr-text);
+  color: white;
   line-height: 1.4;
 }
 img {
@@ -156,13 +156,30 @@ main{
   gap: 5em;
 }
 .main-scroll{
+  margin: 0 auto;
   margin-top: 3em;
-  display: flex;
-  justify-content: center;
   position: relative;
+  width: max-content;
+}
+.scroll-text{
+  position: absolute;
+  top: 30%;
+  right: -300%;
+  width: 0%;
+  opacity: 0;
+  overflow: hidden;
+  font-family: 'Source Code Pro', monospace;
+  transform-origin: left;
+  transition: 500ms all ease;
+}
+.main-scroll:hover .scroll-text{
+  width: max-content;
+  opacity: 1;
+  overflow: visible;
+  transform-origin: left;
 }
 .scroll-btn{
-  width: max-content;
+  display: block;
   background-color: var(--clr-light);
   padding: 1em;
   border-radius: 50px;
