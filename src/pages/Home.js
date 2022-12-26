@@ -12,7 +12,7 @@ const Home = () => {
     <main>
       <div className="container">
         <div className="qualities">
-          <img src={Vector1} alt="" />
+          <img draggable="false" src={Vector1} alt="" />
           <p>
             <Typewriter
               options={{
@@ -71,7 +71,7 @@ const Home = () => {
           </div>
           <div className="main-scroll">
             <a className="scroll-btn" href="/">
-              <img src={Arrow} alt="" />
+              <img draggable="false" src={Arrow} alt="" />
             </a>
             <div className="scroll-text">
               <p>Read more about me</p>
@@ -86,7 +86,7 @@ const Home = () => {
                 className="social"
               >
                 <a href="/">
-                  <img src={Icon1} alt="" />
+                  <img draggable="false" src={Icon1} alt="" />
                 </a>
               </motion.li>
               <motion.li
@@ -96,11 +96,11 @@ const Home = () => {
                 className="social"
               >
                 <a href="/">
-                  <img src={Icon2} alt="" />
+                  <img draggable="false" src={Icon2} alt="" />
                 </a>
               </motion.li>
             </ul>
-            <img src={Vector2} alt="" />
+            <img draggable="false" src={Vector2} alt="" />
           </div>
         </div>
       </div>
