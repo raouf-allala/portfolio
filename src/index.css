@@ -115,6 +115,9 @@ h1{
   color: var(--clr-text);
   border: 2px solid var(--clr-dark);
 }
+.nav-active .drop-down-link img{
+  filter: invert(32%) sepia(99%) saturate(330%) hue-rotate(110deg) brightness(80%) contrast(70%);
+}
 nav{
   display: flex;
   justify-content: space-between;
@@ -137,6 +140,9 @@ nav a {
   padding-block: .7em;
   padding-inline: 1.3em;
   border: 2px solid var(--clr-light);
+}
+.drop-down-link:hover img{
+  filter: none;
 }
 .drop-down-link:hover a{
   color: var(--clr-text);
