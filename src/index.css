@@ -125,6 +125,92 @@ nav a {
   font-weight: 600;
   font-size: 1rem;
 }
+.drop-down-link{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .5em;
+  transition: 300ms all ease;
+}
+.drop-down-link:hover {
+  background-color: var(--clr-dark);
+  padding-block: .7em;
+  padding-inline: 1.3em;
+  border: 2px solid var(--clr-light);
+}
+.drop-down-link:hover a{
+  color: var(--clr-text);
+}
+.drop-down-link img{
+  width: 15px;
+}
+.drop-down{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.drop-down ul li a{
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: var(--clr-dark);
+  padding-block: .7em;
+  padding-inline: 1.3em;
+  border-bottom: 1px solid var(--clr-light);
+  outline: 2px solid var(--clr-light);
+  z-index: 100;
+  transition: 300ms all ease;
+}
+.drop-down ul li a:hover{
+  transform: translateX(12px);
+}
+.drop-down ul li:hover .layer:nth-child(2){
+  opacity: .7;
+  transform: translateX(6px);
+}
+.drop-down ul li:hover .layer:nth-child(3){
+  opacity: .4;
+  transform: translateX(2px);
+}
+.drop-down ul li:hover .layer:nth-child(4){
+  opacity: .2;
+  transform: translateX(-2px);
+}
+.drop-down ul li:nth-child(3){
+  border: none;
+}
+.drop-down ul li:nth-child(1){
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: 300ms all ease;
+}
+.drop-down ul li:nth-child(2){
+  transform: translateY(-60px);
+  opacity: 0;
+  transition: 300ms all ease 100ms;
+}
+.drop-down ul li:nth-child(3){
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: 300ms all ease 200ms;
+}
+.drop-down-link:hover .drop-down{
+  pointer-events: all;
+}
+.drop-down-link:hover .drop-down ul li:nth-child(1){
+  transform: translateY(0px);
+  opacity: 1;
+}
+.drop-down-link:hover .drop-down ul li:nth-child(2){
+  transform: translateY(0px);
+  opacity: 1;
+}
+.drop-down-link:hover .drop-down ul li:nth-child(3){
+  transform: translateY(0px);
+  opacity: 1;
+}
 .nav_list{
   display: flex;
   align-items: center;
@@ -141,7 +227,7 @@ nav a {
   height: 100%;
   top: 0;
   right: 0;
-  z-index: -1;
+  z-index: -1111;
   transition: 300ms all ease;
 }
 .holder:hover .layer:nth-child(2){

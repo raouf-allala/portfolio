@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import LogoL from '../assets/RA.png';
 import LogoD from '../assets/Raouf_Allala.png';
+import DownArrow from '../assets/down-arrow.svg';
 const Header = () => {
   const [nav, setNav] = useState(false);
   const changeBg = () => {
@@ -30,8 +31,31 @@ const Header = () => {
             <li>
               <a href="/">ABOUT ME</a>
             </li>
-            <li>
+            <li className="drop-down-link">
               <a href="/">MY WORK</a>
+              <img src={DownArrow} alt="" />
+              <div className="drop-down">
+                <ul>
+                  <li>
+                    <a href="/">Project 1</a>
+                    <div className="layer"></div>
+                    <div className="layer"></div>
+                    <div className="layer"></div>
+                  </li>
+                  <li>
+                    <a href="/">Project 2</a>
+                    <div className="layer"></div>
+                    <div className="layer"></div>
+                    <div className="layer"></div>
+                  </li>
+                  <li>
+                    <a href="/">Project 3</a>
+                    <div className="layer"></div>
+                    <div className="layer"></div>
+                    <div className="layer"></div>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li>
               <a href="/">MY SKILLS</a>
