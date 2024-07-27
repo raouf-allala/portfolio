@@ -443,7 +443,7 @@ const Home = () => {
               header={project.img}
               description={project.category}
               link={project.link}
-              className={cn('[&>p:text-lg]', 'md:col-span-2')}
+              className={cn('[&>p:text-lg]', project.style)}
               // icon={item.icon}
             />
           ))}
