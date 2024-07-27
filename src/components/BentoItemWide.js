@@ -1,7 +1,8 @@
 import { cn } from '../lib/utils';
 import Link from '../assets/link.png';
 
-export const BentoItem = ({
+export const BentoItemWide = ({
+  className,
   title,
   description,
   header,
@@ -11,7 +12,7 @@ export const BentoItem = ({
   return (
     <div
       className={cn(
-        'row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-[#32353a] border border-transparent justify-between flex flex-col space-y-4 md:col-span-1 [&>p:text-lg]'
+        'row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-[#32353a] border border-transparent justify-between flex flex-col space-y-4 md:col-span-2 [&>p:text-lg]'
       )}
     >
       <div className="w-full h-[90%]">

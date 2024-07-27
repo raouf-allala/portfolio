@@ -12,6 +12,7 @@
       "desc1": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "desc2": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "style": "md:col-span-2",
+      "wide": 1,
       "link": "https://gonalez-tours.com/",
       "description": ""
     },
@@ -28,6 +29,7 @@
       "desc1": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "desc2": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "style": "md:col-span-1",
+      "wide": 0,
       "link": "https://play.google.com/store/apps/details?id=codevit.mefrouza.mefrouza",
       "description": ""
     },
@@ -44,6 +46,7 @@
       "desc1": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "desc2": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "style": "md:col-span-1",
+      "wide": 0,
       "link": "https://webexpo-dz.com/",
       "description": ""
     },
@@ -60,6 +63,7 @@
       "desc1": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "desc2": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "style": "md:col-span-2",
+      "wide": 1,
       "link": "https://play.google.com/store/apps/details?id=com.codevit.linkallapp",
       "description": ""
     },
@@ -76,6 +80,7 @@
       "desc1": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "desc2": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "style": "md:col-span-2",
+      "wide": 1,
       "link": "https://ulcschool.com/",
       "description": ""
     },
@@ -92,6 +97,7 @@
       "desc1": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "desc2": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "style": "md:col-span-1",
+      "wide": 0,
       "link": "https://mdl-hc.com/",
       "description": ""
     },
@@ -108,6 +114,7 @@
       "desc1": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "desc2": "Live workshop where we define the main problems and challenges before building a strategic plan moving forward.",
       "style": "md:col-span-2",
+      "wide": 1,
       "link": "https://algerie-profiltre.com/",
       "description": ""
     }

@@ -19,6 +19,7 @@ import Maqam from '../assets/Capture.PNG';
 import Storify from '../assets/Capture2.PNG';
 import Portfolio from '../assets/Capture3.PNG';
 import { BentoItem } from '../components/BentoItem';
+import { BentoItemWide } from '../components/BentoItemWide';
 import { BentoGrid } from '../components/BentoGrid';
 import data from '../data/projects.json';
 const Home = () => {
@@ -435,18 +436,28 @@ const Home = () => {
             </h2>
           </div>
         </div>
-        <BentoGrid className="container mx-auto md:auto-rows-[30rem] lg:auto-rows-[35rem]">
-          {data.map((project, i) => (
-            <BentoItem
-              key={i}
-              title={project.title}
-              header={project.img}
-              description={project.category}
-              link={project.link}
-              className={cn('[&>p:text-lg]', project.style)}
-              // icon={item.icon}
-            />
-          ))}
+        <BentoGrid className="container mx-auto md:auto-rows-[30rem] lg:auto-rows-[32rem]">
+          {data.map((project, i) =>
+            project.wide === 0 ? (
+              <BentoItem
+                key={i}
+                title={project.title}
+                header={project.img}
+                description={project.category}
+                link={project.link}
+                // icon={item.icon}
+              />
+            ) : (
+              <BentoItemWide
+                key={i}
+                title={project.title}
+                header={project.img}
+                description={project.category}
+                link={project.link}
+                // icon={item.icon}
+              />
+            )
+          )}
         </BentoGrid>
       </section>
       <section
