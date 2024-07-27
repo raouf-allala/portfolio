@@ -2,6 +2,7 @@ import { useState } from 'react';
 import LogoL from '../assets/RA.png';
 import LogoD from '../assets/Raouf_Allala.png';
 import DownArrow from '../assets/down-arrow.svg';
+import Cv from '../assets/Raouf-Allala-CV.pdf';
 const Header = () => {
   const [nav, setNav] = useState(false);
   const changeBg = () => {
@@ -29,7 +30,7 @@ const Header = () => {
           </div>
           <ul className="nav_list">
             <li>
-              <a href="/">ABOUT ME</a>
+              <a href="#about-me">ABOUT ME</a>
             </li>
             <li className="drop-down-link">
               <a href="/">MY WORK</a>
@@ -37,19 +38,19 @@ const Header = () => {
               <div className="drop-down">
                 <ul>
                   <li>
-                    <a href="/">Project 1</a>
+                    <a href="#personal">Personal Projects</a>
                     <div className="layer"></div>
                     <div className="layer"></div>
                     <div className="layer"></div>
                   </li>
                   <li>
-                    <a href="/">Project 2</a>
+                    <a href="#codev">CodevIT</a>
                     <div className="layer"></div>
                     <div className="layer"></div>
                     <div className="layer"></div>
                   </li>
                   <li>
-                    <a href="/">Project 3</a>
+                    <a href="#webexpo">Webexpo</a>
                     <div className="layer"></div>
                     <div className="layer"></div>
                     <div className="layer"></div>
@@ -62,8 +63,8 @@ const Header = () => {
             </li>
           </ul>
           <div className="holder p-relative">
-            <a className="btn-contact" href="/">
-              CONTACT ME
+            <a className="btn-contact" href={Cv} download={true}>
+              My Resume
             </a>
             <div className="layer"></div>
             <div className="layer"></div>
