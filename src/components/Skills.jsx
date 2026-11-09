@@ -11,6 +11,7 @@ import {
 } from 'simple-icons';
 import { EASE_OUT } from '../lib/motion';
 import { SectionTitle } from './Blueprint';
+import Marquee from './Marquee';
 
 // AWS isn't in simple-icons (trademark removal), so it gets a drawn cloud.
 const cloud = {
@@ -50,8 +51,14 @@ function SkillIcon({ icon }) {
 
 export default function Skills() {
   return (
-    <section id="skills" aria-labelledby="skills-title" className="relative py-24 sm:py-32">
-      <div className="page">
+    <section id="skills" aria-labelledby="skills-title" className="relative overflow-hidden py-24 sm:py-32">
+      <Marquee
+        rows={[
+          ['React', 'Next.js', 'React Native', 'Tailwind CSS', 'Node.js'],
+          ['Laravel', 'MongoDB', 'MySQL', 'Git', 'AWS'],
+        ]}
+      />
+      <div className="page mt-16 sm:mt-24">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <SectionTitle id="skills-title" className="lg:col-span-6">
             Toolkit
