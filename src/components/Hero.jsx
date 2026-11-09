@@ -5,6 +5,7 @@ import { EMAIL, SOCIALS } from '../lib/socials';
 import { Magnetic } from './Fx';
 import { ArrowDown, ArrowUpRight } from './Icons';
 import ParticleName from './ParticleName';
+import Nebula from './Nebula';
 
 const rise = (delay, ready) => ({
   initial: { opacity: 0, y: 28, filter: 'blur(8px)' },
@@ -18,7 +19,7 @@ export default function Hero({ ready, burst }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const lift = useTransform(scrollYProgress, [0, 1], ['0%', '-25%']);
   const fade = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const glowY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+  const spaceY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
 
   return (
     <section
@@ -28,24 +29,24 @@ export default function Hero({ ready, burst }) {
       aria-labelledby="hero-title"
       className="relative flex min-h-[100svh] flex-col overflow-hidden pt-28"
     >
-      {/* soft light from above, drifting with scroll */}
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[-30%] h-[80vh] w-[120vw] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(closest-side,rgb(30_117_90/0.45),transparent)] blur-2xl"
-        style={reduced ? undefined : { y: glowY }}
-      />
+      {/* green light from above, its edges breaking into nebula dust */}
+      <motion.div className="absolute inset-0" style={reduced ? undefined : { y: spaceY }}>
+        <Nebula />
+      </motion.div>
 
       <div className="page relative flex flex-1 flex-col justify-center">
         <h1 id="hero-title" className="sr-only">
-          Raouf Allala, software and AI engineer
+          Raouf Allala, also known as rwifoo, software and AI engineer
         </h1>
         <ParticleName ready={ready} progress={scrollYProgress} burst={burst} />
+        {/* player tag */}
         <motion.p
-          className="mt-4 font-mono text-xs text-muted"
+          aria-hidden="true"
+          className="mt-5 inline-flex items-center gap-2.5 self-start rounded-full bg-white/[0.06] py-2 pl-3 pr-4 font-mono text-sm text-ink ring-1 ring-white/10 backdrop-blur sm:self-end"
           {...rise(0.9, ready)}
         >
-          <span className="hidden sm:inline">( move your cursor through the pixels )</span>
-          <span className="sm:hidden">( drag your finger across the pixels )</span>
+          <span className="h-2 w-2 bg-mint" />
+          <span className="text-muted">aka</span> rwifoo
         </motion.p>
       </div>
 

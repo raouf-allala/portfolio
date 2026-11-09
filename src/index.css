@@ -186,6 +186,13 @@
   100% { transform: translate(0, 0); }
 }
 
+/* Pixel flip used when the level-select preview swaps projects */
+@keyframes pixelflip {
+  0% { transform: scale(0); }
+  40%, 60% { transform: scale(1.04); }
+  100% { transform: scale(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
