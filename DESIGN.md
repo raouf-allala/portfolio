@@ -40,7 +40,13 @@ and are redrawn as strokes that animate in.
   `cubic-bezier(0.77, 0, 0.175, 1)` for movement.
 - Intro (~1.5s, once per visit, skippable) → hero entrance (lines draw, name
   rises, screenshot unfolds).
-- Scroll moments: project screenshots unfold from their frame; the About
-  statement lights up word by word; rules draw across.
+- Scroll moments: on desktop (≥1024px) "Selected work" is a pinned
+  horizontal gallery with inner parallax and a progress line; on smaller
+  screens screenshots unfold from their frame. The About statement lights up
+  word by word; the skills marquee drifts and follows scroll velocity and
+  direction; the footer is a curtain reveal with a full-width wordmark.
+- Hover distortion (`RippleImage`): a WebGL lens + ripple + chromatic split
+  around the cursor, mouse pointers only. The context is created on hover and
+  released after it settles; touch and reduced-motion get a plain image.
 - Lenis smooth scrolling. Under `prefers-reduced-motion`: no intro, no Lenis,
   no scroll-linked effects, and all content is visible.

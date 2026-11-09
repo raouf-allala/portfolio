@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Maqam from '../assets/Capture.webp';
 import { EASE_OUT, prefersReducedMotion, scrollToId } from '../lib/motion';
 import { Construction } from './Blueprint';
+import RippleImage from './RippleImage';
 import { ArrowDown, Mail } from './Icons';
 import { EMAIL, SOCIALS } from '../lib/socials';
 
@@ -156,12 +157,13 @@ export default function Hero({ ready }) {
           transition={{ duration: 1.1, delay: 0.4, ease: [0.77, 0, 0.175, 1] }}
         >
           <div className="plate relative bg-ground-deep">
-            <img
+            <RippleImage
               src={Maqam}
               alt="Maqam association management dashboard, designed and built by Raouf"
               width="1600"
               height="789"
-              className="aspect-[16/10] w-full object-cover object-left-top"
+              position={[0, 0]}
+              imgClassName="aspect-[16/10] w-full object-cover object-left-top"
               fetchPriority="high"
             />
           </div>

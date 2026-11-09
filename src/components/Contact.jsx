@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import Cv from '../assets/Raouf-Allala-CV.pdf';
-import { EASE_OUT, scrollToId } from '../lib/motion';
+import { EASE_OUT } from '../lib/motion';
+import Footer from './Footer';
 import { Construction, SectionTitle } from './Blueprint';
-import { ArrowUp, ArrowUpRight, Download, Mail } from './Icons';
+import { ArrowUpRight, Download, Mail } from './Icons';
 import { EMAIL, SOCIALS } from '../lib/socials';
 
 export default function Contact() {
@@ -67,21 +68,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <footer className="border-t border-line bg-ground-deep">
-        <div className="page flex flex-col items-start justify-between gap-4 py-8 text-sm text-muted sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Raouf Allala. Designed and built by me.</p>
-          <a
-            href="#top"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToId('top');
-            }}
-            className="inline-flex items-center gap-2 font-mono text-xs hover:text-mint"
-          >
-            Back to top <ArrowUp size={14} />
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
