@@ -60,6 +60,12 @@ export const scrollToId = (id) => {
   else el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
 };
 
+/** Scrolls to an absolute page position, through Lenis when it is running. */
+export const scrollToY = (y) => {
+  if (lenis) lenis.scrollTo(y);
+  else window.scrollTo({ top: y, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+};
+
 export function useMediaQuery(query) {
   const [matches, setMatches] = useState(
     () => typeof window !== 'undefined' && window.matchMedia(query).matches

@@ -25,6 +25,12 @@ with each product's own colour (`tint` in `projects.json`).
 - **Geist** for everything: display weight 600, tracking -0.055em.
 - **Geist Mono** for small uppercase labels and hints.
 
+## Hero
+
+Deep space (`Starfield.jsx`): pixel stars drift at three depths around a
+slowly moving green nebula, lean with the mouse and streak when scrolling
+fast. The gamer tag sits under the name as a small player tag: "aka rwifoo".
+
 ## Signature: pixel-particle name
 
 `ParticleName.jsx` samples the name into thousands of square pixels on a
@@ -41,8 +47,10 @@ Konami code. The loop sleeps when nothing moves.
 - Education ("How I got here"): the page turns light; each part of the story
   comes into focus at the middle of the screen while a pixel drawing on the
   side morphs (`</>` → sparkle → heart) and First / Then / Now updates.
-- Work: sticky cards stack like a deck; screenshots drift inside colour panels
-  (image first on mobile so the stack shows the work).
+- Work ("level select"): the section pins like a game's stage-select screen.
+  Scroll moves a mint pixel-bracket cursor across the project tiles; the
+  preview swaps with a pixel flip, the title decodes, and the page takes on a
+  hint of the project's colour. Tiles are clickable.
 - Webexpo: parallax screenshots; images reveal from blur.
 - Headings reveal word by word; buttons are magnetic; a dot cursor grows into
   a label over projects (mouse only); nav hides on scroll down.
