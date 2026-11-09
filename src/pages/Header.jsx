@@ -1,18 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LogoL from '../assets/RA.png';
 import LogoD from '../assets/Raouf_Allala.png';
 import DownArrow from '../assets/down-arrow.svg';
 import Cv from '../assets/Raouf-Allala-CV.pdf';
 const Header = () => {
   const [nav, setNav] = useState(false);
-  const changeBg = () => {
-    if (window.scrollY >= 80) {
-      setNav(true);
-    } else {
-      setNav(false);
-    }
-  };
-  window.addEventListener('scroll', changeBg);
+  useEffect(() => {
+    // Previously this listener was added on every render and never removed.
+    const changeBg = () => setNav(window.scrollY >= 80);
+    changeBg();
+    window.addEventListener('scroll', changeBg, { passive: true });
+    return () => window.removeEventListener('scroll', changeBg);
+  }, []);
   return (
     <header className={!nav ? 'nav' : 'nav-active'}>
       <div className="container">
@@ -20,11 +19,11 @@ const Header = () => {
           <div className="logo">
             {!nav ? (
               <a href="/">
-                <img src={LogoL} alt="" />
+                <img src={LogoL} alt="Raouf Allala" />
               </a>
             ) : (
               <a href="/">
-                <img src={LogoD} alt="" />
+                <img src={LogoD} alt="Raouf Allala" />
               </a>
             )}
           </div>
@@ -33,8 +32,8 @@ const Header = () => {
               <a href="#about-me">ABOUT ME</a>
             </li>
             <li className="drop-down-link">
-              <a href="/">MY WORK</a>
-              <img src={DownArrow} alt="" />
+              <a href="#personal">MY WORK</a>
+              <img src={DownArrow} alt="" aria-hidden="true" />
               <div className="drop-down">
                 <ul>
                   <li>
@@ -59,7 +58,7 @@ const Header = () => {
               </div>
             </li>
             <li>
-              <a href="/">MY SKILLS</a>
+              <a href="#skills">MY SKILLS</a>
             </li>
           </ul>
           <div className="holder p-relative">

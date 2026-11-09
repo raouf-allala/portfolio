@@ -1,18 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Unbounded:wght@200..900&display=swap');
+@import 'tailwindcss';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-*,*::after,*::before{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
+/* Element-level defaults live in the base layer so Tailwind utilities can still override them (same as with Tailwind v3). */
+@layer base {
+  /* Tailwind v4 changed the default border color to currentcolor; keep the v3 look. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+  *,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+  *,html{
+    scroll-behavior: smooth !important;
+  }
+  body{
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--clr-bg);
+    overflow-x: hidden;
+    color: white;
+    line-height: 1.4;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  h1{
+    font-size: clamp(1.8rem , 5vw + 1rem , 2.5rem);
+    color: white;
+  }
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav a {
+    color: var(--clr-text);
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  main{
+    margin-top: 8em;
+  }
 }
+
 :root{
   --clr-bg:#23272C;
   --clr-text:#DBFBF1;
@@ -37,24 +74,6 @@
   font-family: "Unbounded", sans-serif !important;
 }
 
-*,html{
-  scroll-behavior: smooth !important;
-}
-body{
-  font-family: "Montserrat", sans-serif;
-  background-color: var(--clr-bg);
-  overflow-x: hidden;
-  color: white;
-  line-height: 1.4;
-}
-img {
-  max-width: 100%;
-  display: block;
-}
-h1{
-  font-size: clamp(1.8rem , 5vw + 1rem , 2.5rem);
-  color: white;
-}
 .container {
   width: 85%;
   max-width: 1240px;
@@ -143,16 +162,6 @@ h1{
 }
 .nav-active .drop-down-link img{
   filter: invert(32%) sepia(99%) saturate(330%) hue-rotate(110deg) brightness(80%) contrast(70%);
-}
-nav{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-nav a {
-  color: var(--clr-text);
-  font-weight: 600;
-  font-size: .8rem;
 }
 .drop-down-link{
   position: relative;
@@ -277,16 +286,14 @@ nav a {
   background-color: var(--clr-dark);
 }
 /*                                        main                            */
-main{
-  margin-top: 8em;
-}
 .qualities{
   display: flex;
   align-items: center;
   gap: 2em;
   margin-top: 3em;
 }
-.qualities p{
+.qualities p,
+.qualities .typewriter-line{
   font-family: 'Source Code Pro', monospace;
   font-size: 1.5rem;
   letter-spacing: 5px;

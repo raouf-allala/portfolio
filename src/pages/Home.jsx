@@ -1,23 +1,21 @@
 import Shape1 from '../assets/Group 1.svg';
 import Shape2 from '../assets/Group 2.svg';
-// import LaptopImage from '../assets/raouf.png';
 import Vector1 from '../assets/Vector 12.svg';
 import Vector2 from '../assets/Vector 11.svg';
 import Arrow from '../assets/Arrow.svg';
 import Icon1 from '../assets/g-icon.svg';
 import Icon2 from '../assets/l-icon.svg';
-import Webexpo from '../assets/webexpo/webexpo.PNG';
-import Webexpo2 from '../assets/webexpo/webexpo2.PNG';
+import Webexpo from '../assets/webexpo/webexpo.webp';
+import Webexpo2 from '../assets/webexpo/webexpo2.webp';
 import { AnimatePresence, motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
-// import { MacbookScroll } from '../components/laptop';
 import { cn } from '../lib/utils';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import { useMotionValueEvent, useScroll } from 'framer-motion';
-import Maqam from '../assets/Capture.PNG';
-import Storify from '../assets/Capture2.PNG';
-import Portfolio from '../assets/Capture3.PNG';
+import Maqam from '../assets/Capture.webp';
+import Storify from '../assets/Capture2.webp';
+import Portfolio from '../assets/Capture3.webp';
 import { BentoItem } from '../components/BentoItem';
 import { BentoItemWide } from '../components/BentoItemWide';
 import { BentoGrid } from '../components/BentoGrid';
@@ -34,7 +32,6 @@ const Home = () => {
           projects, from building scalable web applications to
           designing intuitive user interfaces.
         `,
-      link: '#',
     },
     {
       title: 'Fullstack Development',
@@ -44,7 +41,6 @@ const Home = () => {
           everything runs smoothly and efficiently, making sure users have a
           great experience.
         `,
-      link: '#',
     },
     {
       title: 'UI/UX',
@@ -53,7 +49,6 @@ const Home = () => {
           My goal is to make sure users find the interfaces easy to navigate
           and enjoyable to use.
         `,
-      link: '#',
     },
   ];
   const [activeCard, setActiveCard] = useState(0);
@@ -70,12 +65,9 @@ const Home = () => {
       description:
         'The Management System is designed to efficiently manage member profiles, organize groups, and track trimester-based contributions. It allows for detailed record-keeping, group assignments, and generates comprehensive PDF reports on memberships and contributions, ensuring streamlined operations and transparency.',
       content: (
-        <a
-          className="relative group  block p-1 h-full w-full"
-          href="/"
-        >
-          <img src={Maqam} alt="" />
-        </a>
+        <div className="relative group  block p-1 h-full w-full">
+          <img src={Maqam} alt="Maqam association management system screenshot" />
+        </div>
       ),
     },
     {
@@ -83,12 +75,9 @@ const Home = () => {
       description:
         'My Storify unites multiple sellers in one online marketplace. Vendors manage their stores, listings, and orders independently, while customers enjoy a unified shopping cart, product reviews, and advanced search. Admins approve vendors, manage commissions, and access sales reports. Secure payments and dispute resolution ensure safety, while promotions and SEO tools boost visibility, making My Storify ideal for a thriving marketplace.',
       content: (
-        <a
-          className="relative group  block p-1 h-full w-full"
-          href="/"
-        >
-          <img src={Storify} alt="" />
-        </a>
+        <div className="relative group  block p-1 h-full w-full">
+          <img src={Storify} alt="My Storify marketplace screenshot" />
+        </div>
       ),
     },
     {
@@ -96,12 +85,9 @@ const Home = () => {
       description:
         'My portfolio, designed and coded by me, showcases my projects, skills, and experience through a sleek, modern, and responsive interface. Each project includes detailed descriptions, images, and links to demos or repositories. The clean, intuitive navigation ensures easy exploration of my work and contact options, reflecting my passion for creating engaging web experiences.',
       content: (
-        <a
-          className="relative group block p-1 h-full w-full"
-          href="/"
-        >
-          <img src={Portfolio} alt="" />
-        </a>
+        <div className="relative group block p-1 h-full w-full">
+          <img src={Portfolio} alt="Portfolio website screenshot" />
+        </div>
       ),
     },
     // {
@@ -132,22 +118,8 @@ const Home = () => {
     'var(--clr-bg)',
     'var(--clr-bg)',
   ];
-  const linearGradients = [
-    'linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(182,255,233,1) 64%, rgba(17,91,239,1) 100%);',
-    'linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(182,255,233,1) 64%, rgba(17,91,239,1) 100%);',
-    'linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(182,255,233,1) 64%, rgba(17,91,239,1) 100%);',
-  ];
-
-  const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0]
-  );
-
-  useEffect(() => {
-    setBackgroundGradient(
-      linearGradients[activeCard % linearGradients.length]
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeCard]);
+  const backgroundGradient =
+    'linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(182,255,233,1) 64%, rgba(17,91,239,1) 100%)';
   return (
     <main>
       <section>
@@ -159,7 +131,7 @@ const Home = () => {
               src={Vector1}
               alt=""
             />
-            <p style={{ fontSize: '1.1rem' }}>
+            <div className="typewriter-line" style={{ fontSize: '1.1rem' }}>
               <Typewriter
                 options={{
                   strings: [
@@ -174,7 +146,7 @@ const Home = () => {
                   loop: true,
                 }}
               />
-            </p>
+            </div>
           </div>
           <div className="main-content">
             <motion.div
@@ -213,7 +185,9 @@ const Home = () => {
                   ease: 'linear',
                 }}
                 className="btn"
-                href="#"
+                href="https://www.linkedin.com/in/raouf-allala-80b2322b4/"
+                target="_blank"
+                rel="noreferrer"
               >
                 CONTACT ME
               </motion.a>
@@ -231,7 +205,7 @@ const Home = () => {
               </motion.a>
             </div>
             <div className="main-scroll">
-              <a className="scroll-btn" href="#about-me">
+              <a className="scroll-btn" href="#about-me" aria-label="Read more about me">
                 <img draggable="false" src={Arrow} alt="" />
               </a>
               <div className="scroll-text">
@@ -251,7 +225,7 @@ const Home = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <img draggable="false" src={Icon1} alt="" />
+                    <img draggable="false" src={Icon1} alt="GitHub" />
                   </a>
                 </motion.li>
                 <motion.li
@@ -265,7 +239,7 @@ const Home = () => {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <img draggable="false" src={Icon2} alt="" />
+                    <img draggable="false" src={Icon2} alt="LinkedIn" />
                   </a>
                 </motion.li>
               </ul>
@@ -305,9 +279,8 @@ const Home = () => {
             )}
           >
             {items.map((item, idx) => (
-              <a
-                href={item?.link}
-                key={item?.link}
+              <div
+                key={item.title}
                 className="relative group  block p-1 h-full w-full"
                 onMouseEnter={() => setHoveredIndex(idx)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -315,7 +288,7 @@ const Home = () => {
                 <AnimatePresence>
                   {hoveredIndex === idx && (
                     <motion.span
-                      className="absolute inset-0 h-full w-full bg-[#b6ffe9] dark:bg-slate-800/[0.8] block  rounded-3xl"
+                      className="absolute inset-0 h-full w-full bg-[#b6ffe9] dark:bg-slate-800/80 block  rounded-3xl"
                       layoutId="hoverBackground"
                       initial={{ opacity: 0 }}
                       animate={{
@@ -335,7 +308,7 @@ const Home = () => {
                     {item.description}
                   </CardDescription>
                 </Card>
-              </a>
+              </div>
             ))}
           </div>
           {/* <div className="overflow-hidden dark:bg-[#0B0B0F] "> */}
@@ -364,7 +337,7 @@ const Home = () => {
             backgroundColor:
               backgroundColors[activeCard % backgroundColors.length],
           }}
-          className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 scrollbar-hide"
+          className="h-120 overflow-y-auto flex justify-center relative gap-10 rounded-md p-10 scrollbar-hide"
           ref={ref}
         >
           <div className="div relative flex items-start px-4">
@@ -436,11 +409,11 @@ const Home = () => {
             </h2>
           </div>
         </div>
-        <BentoGrid className="container mx-auto md:auto-rows-[30rem] lg:auto-rows-[32rem]">
-          {data.map((project, i) =>
-            project.wide === 0 ? (
+        <BentoGrid className="container mx-auto md:auto-rows-120 lg:auto-rows-128">
+          {data.map((project) =>
+            !project.wide ? (
               <BentoItem
-                key={i}
+                key={project.id}
                 title={project.title}
                 header={project.img}
                 description={project.category}
@@ -449,7 +422,7 @@ const Home = () => {
               />
             ) : (
               <BentoItemWide
-                key={i}
+                key={project.id}
                 title={project.title}
                 header={project.img}
                 description={project.category}
@@ -504,7 +477,7 @@ const Home = () => {
                 marginTop: '2em',
               }}
               src={Webexpo}
-              alt=""
+              alt="Webexpo ElDjazair website screenshot"
             />
           </div>
           <div className="flex gap-12 flex-row-reverse mt-10">
@@ -541,7 +514,7 @@ const Home = () => {
                 borderRadius: 5,
               }}
               src={Webexpo2}
-              alt=""
+              alt="Webexpo ElDjazair dashboard screenshot"
             />
           </div>
           <div className="flex justify-center items-center mt-12">
@@ -556,7 +529,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section id="skills" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
@@ -698,7 +671,7 @@ export const Card = ({ className, children }) => {
   return (
     <div
       className={cn(
-        'rounded-3xl h-full w-full p-4 overflow-hidden bg-[#32353a] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20',
+        'rounded-3xl h-full w-full p-4 overflow-hidden bg-[#32353a] border border-transparent dark:border-white/20 group-hover:border-slate-700 relative z-20',
         className
       )}
     >

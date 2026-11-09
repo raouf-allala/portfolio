@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import AppLoading from './pages/AppLoading';
 import Header from './pages/Header';
 import Home from './pages/Home';
@@ -13,9 +12,6 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Helmet>
-        <title>Raouf.</title>
-      </Helmet>
       <AnimatePresence>
         {showContent && (
           <motion.div

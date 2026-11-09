@@ -12,14 +12,16 @@ export const BentoItemWide = ({
   return (
     <div
       className={cn(
-        'row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-[#32353a] border border-transparent justify-between flex flex-col space-y-4 md:col-span-2 [&>p:text-lg]'
+        'row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/20 bg-[#32353a] border border-transparent justify-between flex flex-col gap-4 md:col-span-2 [&>p:text-lg]',
+        className
       )}
     >
       <div className="w-full h-[90%]">
         <img
-          className="h-full w-full rounded object-cover"
+          className="h-full w-full rounded-sm object-cover"
           src={header}
-          alt=""
+          alt={`${title} screenshot`}
+          loading="lazy"
         />
       </div>
       <div className="group-hover/bento:translate-x-2 transition duration-200">
@@ -32,7 +34,7 @@ export const BentoItemWide = ({
               rel="noreferrer"
               className="flex items-center gap-2"
             >
-              <p>{title}</p> <img width={20} src={Link} alt="" />
+              <p>{title}</p> <img width={20} src={Link} alt="" aria-hidden="true" />
             </a>
           ) : (
             title
