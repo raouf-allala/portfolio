@@ -8,7 +8,8 @@
     "img": "/assets/gonalez/1.webp",
     "fit": "cover",
     "link": "https://gonalez-tours.com/",
-    "linkLabel": "Visit site"
+    "linkLabel": "Visit site",
+    "tint": "#fe3b62"
   },
   {
     "id": "maqam",
@@ -17,7 +18,8 @@
     "category": "Full-stack development",
     "kind": "personal",
     "img": "maqam",
-    "fit": "cover"
+    "fit": "cover",
+    "tint": "#23305c"
   },
   {
     "id": "mefrouza",
@@ -28,7 +30,8 @@
     "img": "/assets/mefrouza/1.webp",
     "fit": "cover",
     "link": "https://play.google.com/store/apps/details?id=codevit.mefrouza.mefrouza",
-    "linkLabel": "Get it on Google Play"
+    "linkLabel": "Get it on Google Play",
+    "tint": "#3e26c3"
   },
   {
     "id": "ulc",
@@ -39,7 +42,8 @@
     "img": "/assets/ulc/1.webp",
     "fit": "cover",
     "link": "https://ulcschool.com/",
-    "linkLabel": "Visit site"
+    "linkLabel": "Visit site",
+    "tint": "#2d3c69"
   },
   {
     "id": "linkall",
@@ -50,7 +54,8 @@
     "img": "/assets/linkall/1.webp",
     "fit": "cover",
     "link": "https://play.google.com/store/apps/details?id=com.codevit.linkallapp",
-    "linkLabel": "Get it on Google Play"
+    "linkLabel": "Get it on Google Play",
+    "tint": "#6e6ffd"
   },
   {
     "id": "storify",
@@ -59,7 +64,8 @@
     "category": "Full-stack development",
     "kind": "personal",
     "img": "storify",
-    "fit": "cover"
+    "fit": "cover",
+    "tint": "#4c94dc"
   },
   {
     "id": "mdlhc",
@@ -71,7 +77,8 @@
     "fit": "contain",
     "bg": "#f1f3f4",
     "link": "https://mdl-hc.com/",
-    "linkLabel": "Visit site"
+    "linkLabel": "Visit site",
+    "tint": "#d8cd52"
   },
   {
     "id": "profiltre",
@@ -82,6 +89,7 @@
     "img": "/assets/profiltre/1.webp",
     "fit": "cover",
     "link": "https://algerie-profiltre.com/",
-    "linkLabel": "Visit site"
+    "linkLabel": "Visit site",
+    "tint": "#28c39f"
   }
 ]

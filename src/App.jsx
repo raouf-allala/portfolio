@@ -12,28 +12,45 @@ import { PixelRain, Toast } from './components/Easter';
 import { introAlreadySeen, useSmoothScroll } from './lib/motion';
 
 const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+const DEFAULT_BG = '#0a0c0b';
+const DEFAULT_FG = '#f2f7f5';
+
+/** The page colour follows whichever section holds the middle of the screen. */
+function useSectionColors() {
+  useEffect(() => {
+    const root = document.documentElement;
+    const sections = [...document.querySelectorAll('[data-bg]')];
+    const io = new IntersectionObserver(
+      (entries) => {
+        const hit = entries.find((e) => e.isIntersecting);
+        if (!hit) return;
+        root.style.setProperty('--page-bg', hit.target.dataset.bg || DEFAULT_BG);
+        root.style.setProperty('--page-fg', hit.target.dataset.fg || DEFAULT_FG);
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
+    sections.forEach((s) => io.observe(s));
+    return () => io.disconnect();
+  }, []);
+}
 
 export default function App() {
   const [ready, setReady] = useState(introAlreadySeen);
   const [toast, setToast] = useState(null);
   const [rain, setRain] = useState(false);
+  const [burst, setBurst] = useState(0);
   const toastTimer = useRef(null);
   const endShown = useRef(false);
-  const pokes = useRef(0);
   const done = useCallback(() => setReady(true), []);
   const stopRain = useCallback(() => setRain(false), []);
   useSmoothScroll();
+  useSectionColors();
 
   const show = useCallback((t) => {
     clearTimeout(toastTimer.current);
     setToast(t);
     toastTimer.current = setTimeout(() => setToast(null), 3800);
   }, []);
-
-  const cheat = useCallback(() => {
-    setRain(true);
-    show({ icon: 'robot', title: 'Cheat code accepted', body: '+30 lives. Bit is impressed.' });
-  }, [show]);
 
   // ↑ ↑ ↓ ↓ ← → ← → B A
   useEffect(() => {
@@ -43,20 +60,14 @@ export default function App() {
       i = k === KONAMI[i] ? i + 1 : k === KONAMI[0] ? 1 : 0;
       if (i === KONAMI.length) {
         i = 0;
-        cheat();
+        setRain(true);
+        setBurst((b) => b + 1);
+        show({ icon: 'spark', title: 'Cheat code accepted', body: '+30 lives. Nice moves.' });
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [cheat]);
-
-  const poke = useCallback(() => {
-    pokes.current += 1;
-    if (pokes.current === 5) {
-      pokes.current = 0;
-      cheat();
-    }
-  }, [cheat]);
+  }, [show]);
 
   const reachEnd = useCallback(() => {
     if (endShown.current) return;
@@ -75,7 +86,7 @@ export default function App() {
       <Loader show={!ready} onDone={done} />
       <Nav />
       <main>
-        <Hero ready={ready} onPoke={poke} />
+        <Hero ready={ready} burst={burst} />
         <About />
         <Work />
         <Webexpo />

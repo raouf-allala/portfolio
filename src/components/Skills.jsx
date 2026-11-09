@@ -11,7 +11,7 @@ import {
   siTailwindcss,
 } from 'simple-icons';
 import { EASE_OUT, prefersReducedMotion } from '../lib/motion';
-import { PixelLabel, RevealText } from './Fx';
+import { RevealText } from './Fx';
 
 // Drawn glyphs for the two items simple-icons doesn't carry.
 const SPARK = {
@@ -39,14 +39,12 @@ const GROUPS = [
   { name: 'Tools', items: [{ name: 'Git', icon: siGit }, { name: 'AWS', icon: CLOUD }] },
 ];
 
-const COUNT = GROUPS.reduce((n, g) => n + g.items.length, 0);
-
 function Icon({ icon }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      width="30"
-      height="30"
+      width="20"
+      height="20"
       aria-hidden="true"
       fill={icon.stroke ? 'none' : 'currentColor'}
       stroke={icon.stroke ? 'currentColor' : 'none'}
@@ -58,51 +56,47 @@ function Icon({ icon }) {
   );
 }
 
-function Slot({ item, delay }) {
+export default function Skills() {
   const reduced = prefersReducedMotion();
   return (
-    <motion.li
-      className="group bg-line p-px pixel-corners transition-colors duration-300 hover:bg-mint"
-      initial={reduced ? false : { opacity: 0, scale: 0.85 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: '0px 0px -10% 0px' }}
-      transition={{ duration: 0.5, delay, ease: EASE_OUT }}
-    >
-      <div className="flex h-full flex-col justify-between gap-6 bg-ground p-4 pixel-corners sm:p-5">
-        <span className="text-mint transition-transform duration-300 ease-(--ease-out) group-hover:-translate-y-1 group-hover:scale-110">
-          <Icon icon={item.icon} />
-        </span>
-        <span className="font-wide text-base font-semibold leading-tight text-ink">{item.name}</span>
-      </div>
-    </motion.li>
-  );
-}
-
-export default function Skills() {
-  return (
-    <section id="skills" aria-labelledby="skills-title" className="relative py-24 sm:py-32">
+    <section id="skills" data-bg="#0a0c0b" aria-labelledby="skills-title" className="relative py-28 sm:py-40">
       <div className="page">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-          <h2 id="skills-title" className="font-display text-[clamp(2.75rem,8vw,7rem)] text-ink lg:col-span-8">
+          <h2 id="skills-title" className="font-display text-[clamp(3rem,9vw,8.5rem)] text-ink lg:col-span-8">
             <RevealText text="Toolkit" />
           </h2>
-          <p className="max-w-[40ch] text-muted lg:col-span-4 lg:justify-self-end">
-            My inventory: {COUNT} items, from AI features down to the server that runs them.
+          <p className="max-w-[38ch] text-muted lg:col-span-4 lg:justify-self-end">
+            The stack I reach for every day, from AI features down to the server that runs them.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-10 lg:grid-cols-5 lg:gap-4">
+        <ul className="mt-16 border-t border-line">
           {GROUPS.map((g, gi) => (
-            <div key={g.name}>
-              <PixelLabel className="text-mint">{g.name}</PixelLabel>
-              <ul className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-1">
-                {g.items.map((item, ii) => (
-                  <Slot key={item.name} item={item} delay={gi * 0.06 + ii * 0.04} />
+            <motion.li
+              key={g.name}
+              className="group grid gap-5 border-b border-line py-7 sm:grid-cols-12 sm:items-center sm:py-9"
+              initial={reduced ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '0px 0px -10% 0px' }}
+              transition={{ duration: 0.8, delay: gi * 0.06, ease: EASE_OUT }}
+            >
+              <h3 className="text-[clamp(1.5rem,3vw,2.5rem)] font-medium tracking-[-0.035em] text-ink transition-colors duration-300 group-hover:text-mint sm:col-span-4">
+                {g.name}
+              </h3>
+              <div className="flex flex-wrap gap-2 sm:col-span-8 sm:justify-end">
+                {g.items.map((item) => (
+                  <span
+                    key={item.name}
+                    className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.06] px-4 py-2.5 text-[0.95rem] text-ink transition-colors duration-300 hover:bg-mint hover:text-on-mint"
+                  >
+                    <Icon icon={item.icon} />
+                    {item.name}
+                  </span>
                 ))}
-              </ul>
-            </div>
+              </div>
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

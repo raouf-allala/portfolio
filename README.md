@@ -11,7 +11,7 @@ plus Webexpo ElDjazair), my toolkit, and a downloadable CV.
 - [Tailwind CSS 4](https://tailwindcss.com/) plus custom CSS in `src/index.css`
 - [Motion (framer-motion)](https://motion.dev/) for animations
 - [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling
-- Self-hosted Archivo, Silkscreen and JetBrains Mono (Fontsource), icons from simple-icons
+- Self-hosted Geist and Geist Mono (Fontsource), icons from simple-icons
 
 ## Getting started
 
@@ -31,9 +31,9 @@ npm run lint      # ESLint
 index.html              # HTML entry (title, meta tags, fonts)
 src/
   main.jsx              # React entry point
-  App.jsx               # loader → nav + sections, easter egg, toasts
-  components/           # Loader, Nav, Hero, About, Work, Webexpo, Skills, Contact, Footer, Fx (shared effects)
-  lib/                  # motion helpers, pixel sprites, contact links
+  App.jsx               # loader → nav + sections, background morph, easter egg
+  components/           # Loader, Nav, Hero (+ ParticleName), About, Work, Webexpo, Skills, Contact, Footer, Fx
+  lib/                  # motion helpers, contact links
   data/projects.json    # projects shown in "Selected work"
   assets/               # images, icons, CV
 public/                 # static files served as-is (project thumbnails, favicon)
@@ -41,8 +41,8 @@ public/                 # static files served as-is (project thumbnails, favicon
 
 To add or edit a project, update `src/data/projects.json` and put its
 screenshot in `public/assets/<project>/` (WebP, ~1600px wide). `kind` is
-`client` or `personal`; use `"fit": "contain"` plus a `bg` colour for images
-that should not be cropped. Design decisions are documented in `DESIGN.md`.
+`client` or `personal`; `tint` is the card colour; use `"fit": "contain"` plus
+a `bg` colour for images that should not be cropped. Design decisions are documented in `DESIGN.md`.
 
 ## Deployment
 

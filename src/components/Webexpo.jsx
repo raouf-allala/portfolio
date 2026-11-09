@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Site from '../assets/webexpo/webexpo.webp';
 import Dashboard from '../assets/webexpo/webexpo2.webp';
 import { prefersReducedMotion } from '../lib/motion';
-import { PixelImage, PixelLabel, RevealText } from './Fx';
+import { Label, RevealImage, RevealText } from './Fx';
 import { ArrowUpRight } from './Icons';
 
 const PARTS = [
@@ -18,60 +18,53 @@ export default function Webexpo() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   // Parallax: the two screenshots travel at different speeds.
   const slow = useTransform(scrollYProgress, [0, 1], ['8%', '-8%']);
-  const fast = useTransform(scrollYProgress, [0, 1], ['30%', '-30%']);
+  const fast = useTransform(scrollYProgress, [0, 1], ['35%', '-35%']);
 
   return (
     <section
       id="webexpo"
       ref={ref}
+      data-bg="#0d3a2c"
       aria-labelledby="webexpo-title"
-      className="relative overflow-hidden bg-field py-24 sm:py-36"
+      className="relative overflow-hidden py-28 sm:py-40"
     >
-      <div className="pointer-events-none absolute inset-0 grid-ground opacity-50" aria-hidden="true" />
       <div className="page relative">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
-          <div className="lg:col-span-8">
-            <h2 id="webexpo-title" className="font-display text-[clamp(2.5rem,7vw,6rem)] text-ink">
-              <RevealText text="Webexpo ElDjazair" />
-            </h2>
-          </div>
-          <p className="max-w-[44ch] text-mint-soft/85 lg:col-span-4">
-            As part of the organizing IT team, I made sure every technical piece of a large-scale event
-            ran smoothly: the website, online registration, check-in and the infrastructure on site.
+          <h2 id="webexpo-title" className="font-display text-[clamp(2.75rem,8vw,7.5rem)] text-ink lg:col-span-8">
+            <RevealText text="Webexpo ElDjazair" />
+          </h2>
+          <p className="max-w-[44ch] text-mint-soft/80 lg:col-span-4">
+            As part of the organizing IT team, I made sure every technical piece of a large-scale event ran
+            smoothly: the website, online registration, check-in and the infrastructure on site.
           </p>
         </div>
 
-        <div className="relative mt-16 grid gap-6 md:grid-cols-12">
+        <div className="relative mt-20 grid gap-6 md:grid-cols-12">
           <motion.div className="md:col-span-8" style={reduced ? undefined : { y: slow }}>
-            <div className="overflow-hidden pixel-corners">
-              <PixelImage
-                src={Site}
-                alt="Webexpo ElDjazair 2nd edition website"
-                loading="lazy"
-                imgClassName="aspect-[16/10] w-full object-cover object-left-top"
-              />
-            </div>
+            <RevealImage
+              src={Site}
+              alt="Webexpo ElDjazair 2nd edition website"
+              loading="lazy"
+              className="rounded-[1.5rem]"
+              imgClassName="aspect-[16/10] w-full object-cover object-left-top"
+            />
           </motion.div>
-          <motion.div
-            className="md:col-span-5 md:-ml-[25%] md:mt-[28%]"
-            style={reduced ? undefined : { y: fast }}
-          >
-            <div className="overflow-hidden pixel-corners shadow-[0_30px_60px_-20px_rgb(0_0_0/0.6)]">
-              <PixelImage
-                src={Dashboard}
-                alt="Webexpo admin dashboard for exhibitors, visitors and check-ins"
-                loading="lazy"
-                imgClassName="aspect-[16/10] w-full object-cover object-left-top"
-              />
-            </div>
+          <motion.div className="md:col-span-5 md:-ml-[25%] md:mt-[28%]" style={reduced ? undefined : { y: fast }}>
+            <RevealImage
+              src={Dashboard}
+              alt="Webexpo admin dashboard for exhibitors, visitors and check-ins"
+              loading="lazy"
+              className="rounded-[1.25rem] shadow-[0_40px_80px_-30px_rgb(0_0_0/0.7)]"
+              imgClassName="aspect-[16/10] w-full object-cover object-left-top"
+            />
           </motion.div>
         </div>
 
-        <div className="mt-20 grid gap-8 border-t border-line-strong pt-10 md:grid-cols-3">
+        <div className="mt-24 grid gap-10 border-t border-mint/15 pt-10 md:grid-cols-3">
           {PARTS.map(([title, body]) => (
             <div key={title}>
-              <PixelLabel className="text-mint">{title}</PixelLabel>
-              <p className="mt-3 text-mint-soft/80">{body}</p>
+              <Label className="text-mint">{title}</Label>
+              <p className="mt-4 text-mint-soft/80">{body}</p>
             </div>
           ))}
         </div>
@@ -80,8 +73,8 @@ export default function Webexpo() {
           href="https://webexpo-dz.com/"
           target="_blank"
           rel="noreferrer"
-          className="btn btn-mint mt-12"
-          data-cursor="Visit ↗"
+          className="btn btn-mint mt-14"
+          data-cursor="Visit"
         >
           Visit webexpo-dz.com <ArrowUpRight size={16} />
         </a>
