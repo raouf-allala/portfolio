@@ -1,52 +1,50 @@
-# Design system: Blueprint
+# Design system
 
-The portfolio reads like a technical drawing: dark slate paper, mint ink and
-construction lines. The lines come from the original site's abstract shapes
-and are redrawn as strokes that animate in.
+A premium, agency-style dark site in mint, with a nerdy pixel-art soul:
+pixel touches add personality without turning the site into a game.
 
-## Colour (Committed strategy)
+## Colour
 
 | Token | Value | Use |
 |---|---|---|
-| `ground` | `#23272c` | page background (the original brand slate) |
-| `ground-deep` | `#1b1e22` | intro, menu, footer, image mats |
+| `ground` | `#23272c` | page background |
+| `ground-deep` | `#1b1e22` | loader, footer, cards' inner fill |
+| `surface` | `#2b3036` | project cards |
 | `ink` | `#ecf6f2` | primary text |
-| `muted` | `#a6b8b1` | secondary text (mint-tinted, never grey) |
-| `mint` | `#b6ffe9` | signal colour: name, actions, markers, contact band |
-| `mint-soft` | `#dbfbf1` | text on green fields |
-| `green` / `field` | `#1e755a` / `#0f3a2d` | the Webexpo band, hover fills |
+| `muted` | `#a6b8b1` | secondary text (mint-tinted) |
+| `mint` | `#b6ffe9` | signal colour: name, actions, labels, contact band |
+| `field` | `#0f3a2d` | Webexpo band |
 | `on-mint` | `#0d2a21` | text on mint |
-| `line` / `line-strong` | mint at 14% / 32% | hairlines, grids, plate frames |
+| `line` / `line-strong` | mint at 14% / 32% | hairlines, grid, card borders |
 
 ## Type
 
-- **Archivo** (variable, width axis): display at `wdth 118`, weight 760,
-  tracking -0.035em; body at `wdth 100`.
-- **JetBrains Mono**: only for annotations (categories, roles, dimension
-  labels) and the typewriter line.
+- **Archivo** (variable width axis): display at `wdth 118`, weight 760, tight
+  tracking, set very large (hero name up to ~15rem); body at `wdth 100`.
+- **Silkscreen** (pixel font): only for small HUD labels (player card,
+  counters, categories, toasts).
+- **JetBrains Mono**: project categories.
 
-## Components
+## Pixel soul
 
-- **Plate:** a 1px frame with mint corner ticks around every screenshot.
-- **Section title:** heading with the 5px mint marker bar from the original.
-- **Buttons:** pill; `btn-mint` (primary), `btn-line` (secondary),
-  `btn-dark` (on mint). They press to 0.97 scale.
-- **Grids:** hairline cells (Toolkit), and `grid-ground` for intro, menu and
-  Webexpo.
+- `pixel-corners`: 8-bit stepped corners on cards, slots, the cursor, toasts.
+- Bit, an original 16×16 robot mascot (`src/lib/sprites.js`), plus a trophy.
+- Images resolve from big pixels to sharp as they enter (`PixelImage`).
+- Player card in the hero; "Achievement unlocked" toast at the end of the page;
+  Konami code (or tapping Bit 5 times) triggers a pixel rain.
 
 ## Motion
 
-- Easing: `cubic-bezier(0.23, 1, 0.32, 1)` for entrances and
-  `cubic-bezier(0.77, 0, 0.175, 1)` for movement.
-- Intro (~1.5s, once per visit, skippable) → hero entrance (lines draw, name
-  rises, screenshot unfolds).
-- Scroll moments: on desktop (≥1024px) "Selected work" is a pinned
-  horizontal gallery with inner parallax and a progress line; on smaller
-  screens screenshots unfold from their frame. The About statement lights up
-  word by word; the skills marquee drifts and follows scroll velocity and
-  direction; the footer is a curtain reveal with a full-width wordmark.
-- Hover distortion (`RippleImage`): a WebGL lens + ripple + chromatic split
-  around the cursor, mouse pointers only. The context is created on hover and
-  released after it settles; touch and reduced-motion get a plain image.
-- Lenis smooth scrolling. Under `prefers-reduced-motion`: no intro, no Lenis,
-  no scroll-linked effects, and all content is visible.
+- Easing: `cubic-bezier(0.23, 1, 0.32, 1)` (entrances),
+  `cubic-bezier(0.77, 0, 0.175, 1)` (movement). Lenis smooth scrolling.
+- Loader: 0→100 counter with a segmented pixel bar, once per visit, skippable.
+- Hero: name lines rise in; on scroll they split apart, stars drift at three
+  parallax depths, Bit floats up faster.
+- About: pinned for ~2.6 screens: the statement lights up word by word while
+  Bit assembles from scattered pixels.
+- Work: sticky cards stack like a deck; earlier cards shrink and dim.
+- Webexpo: two screenshots in parallax at different speeds.
+- Headings reveal word by word through a mask; buttons are magnetic; a pixel
+  cursor turns into a label ("Visit ↗") over projects (mouse only).
+- `prefers-reduced-motion`: no loader, no Lenis, no pinning or scroll-linked
+  motion; all content static and visible.

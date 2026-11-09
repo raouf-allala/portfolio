@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { EMAIL, SOCIALS } from '../lib/socials';
 import { prefersReducedMotion, scrollToId } from '../lib/motion';
 import { ArrowUp } from './Icons';
@@ -9,12 +9,15 @@ import { ArrowUp } from './Icons';
  * where a full-width "Raouf Allala" wordmark rises into place.
  * (A clip-path on the wrapper confines the fixed layer to the wrapper's box.)
  */
-export default function Footer() {
+export default function Footer({ onReachEnd }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end end'] });
   const y = useTransform(scrollYProgress, [0, 1], ['45%', '0%']);
   const opacity = useTransform(scrollYProgress, [0.2, 1], [0.2, 1]);
   const reduced = prefersReducedMotion();
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    if (v > 0.92) onReachEnd?.();
+  });
 
   const year = new Date().getFullYear();
 
