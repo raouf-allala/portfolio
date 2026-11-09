@@ -1,44 +1,37 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import AppLoading from './pages/AppLoading';
-import Header from './pages/Header';
-import Home from './pages/Home';
-function App() {
-  const [showContent, setShowContent] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setShowContent(true);
-    }, 6000);
-  }, []);
+import { useCallback, useState } from 'react';
+import Intro from './components/Intro';
+import Nav from './components/Nav';
+import Hero from './components/Hero';
+import Work from './components/Work';
+import Webexpo from './components/Webexpo';
+import About from './components/About';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import { introAlreadySeen, useSmoothScroll } from './lib/motion';
+
+export default function App() {
+  const [ready, setReady] = useState(introAlreadySeen);
+  const done = useCallback(() => setReady(true), []);
+  useSmoothScroll();
+
   return (
-    <div className="App">
-      <AnimatePresence>
-        {showContent && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 2 }}
-          >
-            <Header />
-            <Home />
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {!showContent && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0 }}
-          >
-            <AppLoading />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <>
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-mint focus:px-4 focus:py-2 focus:text-on-mint"
+      >
+        Skip to content
+      </a>
+      <Intro show={!ready} onDone={done} />
+      <Nav />
+      <main>
+        <Hero ready={ready} />
+        <Work />
+        <Webexpo />
+        <About />
+        <Skills />
+        <Contact />
+      </main>
+    </>
   );
 }
-
-export default App;

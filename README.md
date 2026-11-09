@@ -10,7 +10,8 @@ Webexpo ElDjazair), my tech skills, and a downloadable CV.
 - [Vite](https://vite.dev/) (dev server + build)
 - [Tailwind CSS 4](https://tailwindcss.com/) plus custom CSS in `src/index.css`
 - [Motion (framer-motion)](https://motion.dev/) for animations
-- [typewriter-effect](https://www.npmjs.com/package/typewriter-effect)
+- [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling
+- Self-hosted Archivo and JetBrains Mono (Fontsource), icons from simple-icons
 
 ## Getting started
 
@@ -30,17 +31,18 @@ npm run lint      # ESLint
 index.html              # HTML entry (title, meta tags, fonts)
 src/
   main.jsx              # React entry point
-  App.jsx               # loading screen → header + home
-  pages/                # Header, Home, AppLoading
-  components/           # Bento grid tiles for the projects section
-  data/projects.json    # CodevIT projects shown in the grid
+  App.jsx               # intro → nav + page sections
+  components/           # Intro, Nav, Hero, Work, Webexpo, About, Skills, Contact
+  lib/                  # motion helpers (smooth scroll, easing), contact links
+  data/projects.json    # projects shown in "Selected work"
   assets/               # images, icons, CV
 public/                 # static files served as-is (project thumbnails, favicon)
 ```
 
-To add or edit a client project, update `src/data/projects.json` and put its
-thumbnail in `public/assets/<project>/`. Set `"wide": true` for a tile that
-spans two columns.
+To add or edit a project, update `src/data/projects.json` and put its
+screenshot in `public/assets/<project>/` (WebP, ~1600px wide). `kind` is
+`client` or `personal`; use `"fit": "contain"` plus a `bg` colour for images
+that should not be cropped. Design decisions are documented in `DESIGN.md`.
 
 ## Deployment
 

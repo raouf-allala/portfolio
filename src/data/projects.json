@@ -1,58 +1,87 @@
 [
   {
-    "id": 1,
-    "title": "Gonalez Tours Management System",
-    "category": "Web Development",
+    "id": "gonalez",
+    "title": "Gonalez Tours",
+    "summary": "Management system for a travel agency: reservations, clients and revenue at a glance.",
+    "category": "Web development",
+    "kind": "client",
     "img": "/assets/gonalez/1.webp",
+    "fit": "cover",
     "link": "https://gonalez-tours.com/",
-    "wide": true
+    "linkLabel": "Visit site"
   },
   {
-    "id": 2,
+    "id": "maqam",
+    "title": "Maqam",
+    "summary": "Association management system: member profiles, groups, trimester-based contributions and PDF reports.",
+    "category": "Full-stack development",
+    "kind": "personal",
+    "img": "maqam",
+    "fit": "cover"
+  },
+  {
+    "id": "mefrouza",
     "title": "Mefrouza",
-    "category": "Mobile Development / Fullstack Development",
+    "summary": "Mobile app and back end, published on Google Play.",
+    "category": "Mobile / full-stack development",
+    "kind": "client",
     "img": "/assets/mefrouza/1.webp",
+    "fit": "cover",
     "link": "https://play.google.com/store/apps/details?id=codevit.mefrouza.mefrouza",
-    "wide": false
+    "linkLabel": "Get it on Google Play"
   },
   {
-    "id": 3,
-    "title": "Webexpo ElDjazair",
-    "category": "Web Development / Fullstack Development",
-    "img": "/assets/webexpo/1.webp",
-    "link": "https://webexpo-dz.com/",
-    "wide": false
-  },
-  {
-    "id": 4,
-    "title": "LinkAll Evasion",
-    "category": "Mobile Development / Fullstack Development",
-    "img": "/assets/linkall/1.webp",
-    "link": "https://play.google.com/store/apps/details?id=com.codevit.linkallapp",
-    "wide": true
-  },
-  {
-    "id": 5,
-    "title": "ULC School Management System",
-    "category": "Web Development",
+    "id": "ulc",
+    "title": "ULC School",
+    "summary": "School management system for students, instructors, groups and courses.",
+    "category": "Web development",
+    "kind": "client",
     "img": "/assets/ulc/1.webp",
+    "fit": "cover",
     "link": "https://ulcschool.com/",
-    "wide": true
+    "linkLabel": "Visit site"
   },
   {
-    "id": 6,
+    "id": "linkall",
+    "title": "LinkAll Evasion",
+    "summary": "Travel and booking app with its own back end, published on Google Play.",
+    "category": "Mobile / full-stack development",
+    "kind": "client",
+    "img": "/assets/linkall/1.webp",
+    "fit": "cover",
+    "link": "https://play.google.com/store/apps/details?id=com.codevit.linkallapp",
+    "linkLabel": "Get it on Google Play"
+  },
+  {
+    "id": "storify",
+    "title": "My Storify",
+    "summary": "Multi-vendor marketplace: independent stores, a unified cart, reviews, commissions and sales reports.",
+    "category": "Full-stack development",
+    "kind": "personal",
+    "img": "storify",
+    "fit": "cover"
+  },
+  {
+    "id": "mdlhc",
     "title": "MDLHC",
-    "category": "Web Development / E-commerce",
+    "summary": "E-commerce website.",
+    "category": "Web development / e-commerce",
+    "kind": "client",
     "img": "/assets/mdl/1.webp",
+    "fit": "contain",
+    "bg": "#f1f3f4",
     "link": "https://mdl-hc.com/",
-    "wide": false
+    "linkLabel": "Visit site"
   },
   {
-    "id": 7,
-    "title": "Algerie Profiltre",
-    "category": "Web Development",
+    "id": "profiltre",
+    "title": "Algérie Profiltre",
+    "summary": "Company website for an industrial filtration manufacturer.",
+    "category": "Web development",
+    "kind": "client",
     "img": "/assets/profiltre/1.webp",
+    "fit": "cover",
     "link": "https://algerie-profiltre.com/",
-    "wide": true
+    "linkLabel": "Visit site"
   }
 ]
