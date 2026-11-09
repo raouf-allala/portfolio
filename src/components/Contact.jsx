@@ -1,74 +1,70 @@
-import { motion } from 'framer-motion';
 import Cv from '../assets/Raouf-Allala-CV.pdf';
-import { EASE_OUT } from '../lib/motion';
-import Footer from './Footer';
-import { Construction, SectionTitle } from './Blueprint';
-import { ArrowUpRight, Download, Mail } from './Icons';
 import { EMAIL, SOCIALS } from '../lib/socials';
+import { Magnetic, PixelLabel, RevealText } from './Fx';
+import { ArrowUpRight, Download, Mail } from './Icons';
+import Footer from './Footer';
 
-export default function Contact() {
+export default function Contact({ onReachEnd }) {
   return (
     <>
       <section
         id="contact"
         aria-labelledby="contact-title"
-        className="relative overflow-hidden bg-mint py-24 text-on-mint sm:py-32"
+        className="relative overflow-hidden bg-mint py-24 text-on-mint sm:py-36"
       >
-        <Construction
-          shape="tall"
-          className="pointer-events-none absolute -bottom-24 right-0 h-[130%] w-auto text-on-mint/15 max-md:hidden"
-        />
         <div className="page relative">
-          <SectionTitle id="contact-title" tone="dark">
-            Let’s build something.
-          </SectionTitle>
-          <p className="mt-6 max-w-[40ch] text-lg text-on-mint/80">
-            Have a project in mind, or a role you think I’d fit? Send me a message.
-          </p>
-
-          <motion.a
-            href={`mailto:${EMAIL}`}
-            className="group mt-12 inline-flex max-w-full items-center gap-3 break-all font-display text-[clamp(1.35rem,4.6vw,3.5rem)] leading-tight"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: EASE_OUT }}
+          <h2
+            id="contact-title"
+            className="font-display text-[clamp(3rem,10vw,9rem)] leading-[0.85] tracking-[-0.045em]"
           >
-            <span className="link-draw pb-1">{EMAIL}</span>
-            <ArrowUpRight
-              size={36}
-              className="hidden shrink-0 transition-transform duration-300 ease-(--ease-out) group-hover:translate-x-1 group-hover:-translate-y-1 sm:block"
-            />
-          </motion.a>
+            <RevealText text="Let’s build" className="block" />
+            <RevealText text="something." className="block" delay={0.12} />
+          </h2>
 
-          <div className="mt-12 flex flex-wrap gap-3">
-            <a href={`mailto:${EMAIL}`} className="btn btn-dark max-sm:w-full">
-              <Mail size={18} /> Email me
-            </a>
-            <a
-              href={Cv}
-              download
-              className="btn border border-on-mint/30 text-on-mint hover:border-on-mint max-sm:w-full"
-            >
-              Download résumé <Download size={16} />
-            </a>
-            {SOCIALS.map(({ label, href, Icon }) => (
+          <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <PixelLabel className="text-on-mint/70">Player 2, press start</PixelLabel>
               <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={label}
-                className="btn h-12 w-12 !px-0 border border-on-mint/30 hover:border-on-mint"
+                href={`mailto:${EMAIL}`}
+                data-cursor="Email ↗"
+                className="group mt-3 flex max-w-full items-center gap-3 font-display text-[clamp(1.25rem,5.4vw,2.6rem)] leading-tight [overflow-wrap:anywhere] lg:whitespace-nowrap"
               >
-                <Icon size={20} />
+                <span className="link-draw pb-1">{EMAIL}</span>
+                <ArrowUpRight
+                  size={36}
+                  className="hidden shrink-0 transition-transform duration-300 ease-(--ease-out) group-hover:-translate-y-1 group-hover:translate-x-1 sm:block"
+                />
               </a>
-            ))}
+            </div>
+            <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
+              <Magnetic>
+                <a href={`mailto:${EMAIL}`} className="btn btn-dark">
+                  <Mail size={18} /> Email me
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a href={Cv} download className="btn border border-on-mint/30 hover:border-on-mint">
+                  Résumé <Download size={16} />
+                </a>
+              </Magnetic>
+              {SOCIALS.map(({ label, href, Icon }) => (
+                <Magnetic key={label}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    className="btn h-12 w-12 border border-on-mint/30 !px-0 hover:border-on-mint"
+                  >
+                    <Icon size={20} />
+                  </a>
+                </Magnetic>
+              ))}
+            </div>
           </div>
         </div>
       </section>
-
-      <Footer />
+      <Footer onReachEnd={onReachEnd} />
     </>
   );
 }

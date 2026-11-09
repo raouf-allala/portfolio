@@ -7,8 +7,8 @@ import { Download } from './Icons';
 import { EMAIL, SOCIALS } from '../lib/socials';
 
 const LINKS = [
-  { id: 'work', label: 'Work' },
   { id: 'about', label: 'About' },
+  { id: 'work', label: 'Work' },
   { id: 'skills', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];

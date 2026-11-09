@@ -20,6 +20,15 @@ export function introAlreadySeen() {
   }
 }
 
+/** Small deterministic random generator, so layouts are stable across renders. */
+export function seeded(seed) {
+  let s = seed;
+  return () => {
+    s = (s * 9301 + 49297) % 233280;
+    return s / 233280;
+  };
+}
+
 let lenis = null;
 
 /** Inertia smooth scrolling. Skipped entirely under reduced motion. */

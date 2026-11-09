@@ -1,8 +1,8 @@
 # Raouf Allala — Portfolio
 
-Personal portfolio site: a single-page React app showcasing my work as a
-full-stack developer (personal projects, client projects with CodevIT, and
-Webexpo ElDjazair), my tech skills, and a downloadable CV.
+Personal portfolio of Raouf Allala, software & AI engineer: a single-page
+React app with my projects (personal work and products built at CodevIT,
+plus Webexpo ElDjazair), my toolkit, and a downloadable CV.
 
 ## Stack
 
@@ -11,7 +11,7 @@ Webexpo ElDjazair), my tech skills, and a downloadable CV.
 - [Tailwind CSS 4](https://tailwindcss.com/) plus custom CSS in `src/index.css`
 - [Motion (framer-motion)](https://motion.dev/) for animations
 - [Lenis](https://lenis.darkroom.engineering/) for smooth scrolling
-- Self-hosted Archivo and JetBrains Mono (Fontsource), icons from simple-icons
+- Self-hosted Archivo, Silkscreen and JetBrains Mono (Fontsource), icons from simple-icons
 
 ## Getting started
 
@@ -31,9 +31,9 @@ npm run lint      # ESLint
 index.html              # HTML entry (title, meta tags, fonts)
 src/
   main.jsx              # React entry point
-  App.jsx               # intro → nav + page sections
-  components/           # Intro, Nav, Hero, Work, Webexpo, About, Skills, Contact
-  lib/                  # motion helpers (smooth scroll, easing), contact links
+  App.jsx               # loader → nav + sections, easter egg, toasts
+  components/           # Loader, Nav, Hero, About, Work, Webexpo, Skills, Contact, Footer, Fx (shared effects)
+  lib/                  # motion helpers, pixel sprites, contact links
   data/projects.json    # projects shown in "Selected work"
   assets/               # images, icons, CV
 public/                 # static files served as-is (project thumbnails, favicon)
