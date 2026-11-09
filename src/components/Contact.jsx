@@ -22,8 +22,12 @@ export default function Contact({ onReachEnd }) {
             <RevealText text="Let’s build" className="block" />
             <RevealText text="something." className="block" delay={0.12} />
           </h2>
+          <p className="mt-8 max-w-[40ch] text-lg text-on-mint/75">
+            That&apos;s my story so far. If you&apos;ve got a project, a role, or you just want to talk games, my
+            inbox is open.
+          </p>
 
-          <div className="mt-14 grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7">
               <Label className="text-on-mint/60">Player 2, press start</Label>
               <a

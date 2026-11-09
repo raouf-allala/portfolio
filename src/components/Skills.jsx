@@ -66,7 +66,7 @@ export default function Skills() {
             <RevealText text="Toolkit" />
           </h2>
           <p className="max-w-[38ch] text-muted lg:col-span-4 lg:justify-self-end">
-            The stack I reach for every day, from AI features down to the server that runs them.
+            What I carry into every project, from the AI features down to the server that runs them.
           </p>
         </div>
 

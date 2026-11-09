@@ -12,6 +12,7 @@ continuous experience. Personality comes through pixels, not a mascot.
 | `ink` / `muted` | `#f2f7f5` / `#8f9c97` | text |
 | `mint` | `#b6ffe9` | signal colour, contact section |
 | `field` | `#0d3a2c` | Webexpo section |
+| paper | `#eef2ef` | education story (dark text, green accents) |
 | `on-mint` | `#08231b` | text on mint |
 
 The page background **morphs** between sections: each section declares
@@ -37,8 +38,18 @@ Konami code. The loop sleeps when nothing moves.
 - Loader: 0→100 counter + progress line, once per visit.
 - About: pinned; the statement lights up word by word, with mint highlights
   sweeping under "software engineer" and "AI engineer".
-- Work: sticky cards stack like a deck; screenshots drift inside colour panels.
+- Education ("How I got here"): the page turns light; each part of the story
+  comes into focus at the middle of the screen while a pixel drawing on the
+  side morphs (`</>` → sparkle → heart) and First / Then / Now updates.
+- Work: sticky cards stack like a deck; screenshots drift inside colour panels
+  (image first on mobile so the stack shows the work).
 - Webexpo: parallax screenshots; images reveal from blur.
 - Headings reveal word by word; buttons are magnetic; a dot cursor grows into
   a label over projects (mouse only); nav hides on scroll down.
 - `prefers-reduced-motion`: no loader, no Lenis, no pinning, static name.
+
+## Voice
+
+The page reads as one story told in first person: who I am → how I got here →
+what I built → Webexpo → my tools → "your turn". Short, plain sentences and
+contractions; no numbered chapters, counters or labels standing in for words.
