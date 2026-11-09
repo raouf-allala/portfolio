@@ -4,12 +4,11 @@ import projects from '../data/projects.json';
 import Maqam from '../assets/Capture.webp';
 import Storify from '../assets/Capture2.webp';
 import { prefersReducedMotion } from '../lib/motion';
-import { Label, RevealText } from './Fx';
+import { RevealText } from './Fx';
 import { ArrowUpRight } from './Icons';
 
 const LOCAL_IMAGES = { maqam: Maqam, storify: Storify };
 const imageFor = (p) => LOCAL_IMAGES[p.img] ?? p.img;
-const pad = (n) => String(n).padStart(2, '0');
 
 /**
  * Scroll moment: each card pins and the next one slides over it, so the
@@ -19,15 +18,16 @@ function Card({ project, index, total, progress }) {
   const ref = useRef(null);
   const reduced = prefersReducedMotion();
   const start = index / total;
-  const scale = useTransform(progress, [start, 1], [1, 1 - (total - index) * 0.03]);
-  const dim = useTransform(progress, [start, Math.min(1, start + 1 / total)], [0, index === total - 1 ? 0 : 0.6]);
+  // earlier cards shrink back and darken as new ones land on top
+  const scale = useTransform(progress, [start, 1], [1, 1 - (total - index) * 0.04]);
+  const dim = useTransform(progress, [start, Math.min(1, start + 1 / total)], [0, index === total - 1 ? 0 : 0.7]);
   // inner parallax: the screenshot drifts inside its colour panel
   const { scrollYProgress: local } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const drift = useTransform(local, [0, 1], ['10%', '-6%']);
   const tint = project.tint ?? '#1e755a';
 
   return (
-    <div ref={ref} className="sticky" style={{ top: `calc(6rem + ${index * 12}px)` }}>
+    <div ref={ref} className="sticky" style={{ top: `calc(5.5rem + ${index * 10}px)` }}>
       <motion.article
         id={`project-${project.id}`}
         aria-labelledby={`project-${project.id}-title`}
@@ -37,24 +37,21 @@ function Card({ project, index, total, progress }) {
           ...(reduced ? null : { scale }),
         }}
       >
-        <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-12 lg:gap-10 lg:p-10">
-          <div className="flex flex-col lg:col-span-4">
-            <div className="flex items-center gap-3">
-              <span className="h-2.5 w-2.5 rounded-full" style={{ background: tint }} />
-              <Label className="text-muted">
-                {pad(index + 1)} / {pad(total)} · {project.kind === 'client' ? 'CodevIT' : 'Personal'}
-              </Label>
-            </div>
+        <div className="grid gap-5 p-3 sm:gap-6 sm:p-8 lg:grid-cols-12 lg:gap-10 lg:p-10">
+          <div className="flex flex-col px-2 pb-2 lg:col-span-4 lg:px-0 lg:pb-0">
             <h3
               id={`project-${project.id}-title`}
-              className="mt-6 font-display text-[clamp(2.25rem,4.6vw,4rem)] text-ink lg:mt-auto"
+              className="font-display text-[clamp(2.1rem,4.6vw,4rem)] text-ink lg:mt-auto"
             >
               {project.title}
             </h3>
-            <p className="mt-3 text-sm text-mint">{project.category}</p>
-            <p className="mt-3 max-w-[42ch] text-muted">{project.summary}</p>
+            <p className="mt-3 text-sm text-mint">
+              {project.category}
+              <span className="text-muted"> · {project.kind === 'client' ? 'at CodevIT' : 'side project'}</span>
+            </p>
+            <p className="mt-3 max-w-[42ch] text-[0.95rem] text-muted sm:text-base">{project.summary}</p>
             {project.link && (
-              <a href={project.link} target="_blank" rel="noreferrer" className="btn btn-ghost mt-7 self-start">
+              <a href={project.link} target="_blank" rel="noreferrer" className="btn btn-ghost mt-6 self-start">
                 {project.linkLabel} <ArrowUpRight size={16} />
                 <span className="sr-only"> ({project.title})</span>
               </a>
@@ -68,11 +65,11 @@ function Card({ project, index, total, progress }) {
             tabIndex={-1}
             aria-hidden="true"
             data-cursor={project.link ? 'Visit' : 'Preview'}
-            className="group relative block aspect-[16/11] overflow-hidden rounded-[1.4rem] lg:col-span-8"
+            className="group relative order-first block aspect-[4/3] overflow-hidden rounded-[1.5rem] sm:aspect-[16/11] lg:order-none lg:col-span-8"
             style={{ background: `linear-gradient(140deg, ${tint}, color-mix(in oklab, ${tint} 55%, #000))` }}
           >
             <motion.div
-              className="absolute inset-x-[7%] top-[9%]"
+              className="absolute inset-x-[6%] top-[10%] sm:inset-x-[7%] sm:top-[9%]"
               style={reduced ? undefined : { y: drift }}
             >
               <img
@@ -110,8 +107,8 @@ export default function Work() {
             <RevealText text="Selected work" />
           </h2>
           <p className="max-w-[38ch] text-muted lg:col-span-4 lg:justify-self-end">
-            Products I built at CodevIT, and things I made on my own: web, mobile, and everything between the
-            database and the pixels.
+            After school came the real thing: products for real clients at CodevIT, and the ones I build for
+            myself when an idea won't leave me alone.
           </p>
         </div>
 

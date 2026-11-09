@@ -8,6 +8,7 @@ import { Download } from './Icons';
 
 const LINKS = [
   { id: 'about', label: 'About' },
+  { id: 'education', label: 'Story' },
   { id: 'work', label: 'Work' },
   { id: 'skills', label: 'Toolkit' },
   { id: 'contact', label: 'Contact' },

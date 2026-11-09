@@ -34,8 +34,8 @@ export default function Webexpo() {
             <RevealText text="Webexpo ElDjazair" />
           </h2>
           <p className="max-w-[44ch] text-mint-soft/80 lg:col-span-4">
-            As part of the organizing IT team, I made sure every technical piece of a large-scale event ran
-            smoothly: the website, online registration, check-in and the infrastructure on site.
+            And then there was Webexpo. I joined the organizing IT team and looked after everything technical
+            behind a big event: the website, online registration, check-in, and the setup on site.
           </p>
         </div>
 
