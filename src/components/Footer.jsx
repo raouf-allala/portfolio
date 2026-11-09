@@ -27,17 +27,17 @@ export default function Footer({ onReachEnd }) {
       className="relative h-[78svh] sm:h-[min(100svh,46rem)]"
       style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
     >
-      <footer className="fixed bottom-0 left-0 flex h-[78svh] w-full flex-col bg-ground-deep grid-ground sm:h-[min(100svh,46rem)]">
+      <footer className="fixed bottom-0 left-0 flex h-[78svh] w-full flex-col bg-ground sm:h-[min(100svh,46rem)]">
         <div className="page flex flex-1 flex-col pt-20 sm:pt-24">
           <div className="grid gap-10 sm:grid-cols-3">
             <div>
-              <p className="font-mono text-xs text-muted">email</p>
+              <p className="font-mono text-xs uppercase tracking-[0.08em] text-muted">Email</p>
               <a href={`mailto:${EMAIL}`} className="mt-2 inline-block break-all text-ink link-draw hover:text-mint">
                 {EMAIL}
               </a>
             </div>
             <div>
-              <p className="font-mono text-xs text-muted">elsewhere</p>
+              <p className="font-mono text-xs uppercase tracking-[0.08em] text-muted">Elsewhere</p>
               <ul className="mt-2 flex flex-col gap-1">
                 {SOCIALS.map(({ label, href }) => (
                   <li key={label}>
@@ -55,7 +55,7 @@ export default function Footer({ onReachEnd }) {
                   e.preventDefault();
                   scrollToId('top');
                 }}
-                className="btn btn-line"
+                className="btn btn-ghost"
               >
                 Back to top <ArrowUp size={16} />
               </a>
@@ -78,10 +78,9 @@ export default function Footer({ onReachEnd }) {
                 fill="currentColor"
                 style={{
                   fontFamily: 'var(--font-sans)',
-                  fontVariationSettings: "'wdth' 118",
-                  fontWeight: 780,
+                  fontWeight: 600,
                   fontSize: 160,
-                  letterSpacing: '-0.03em',
+                  letterSpacing: '-0.05em',
                 }}
               >
                 Raouf Allala

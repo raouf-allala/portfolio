@@ -1,45 +1,50 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/archivo/wdth.css';
-@import '@fontsource-variable/jetbrains-mono/wght.css';
-@import '@fontsource/silkscreen/400.css';
+@import '@fontsource-variable/geist/wght.css';
+@import '@fontsource-variable/geist-mono/wght.css';
 @import 'lenis/dist/lenis.css';
 
-/* ── Design tokens ─────────────────────────────────────────── */
+/* ── Design tokens ───────────────────────────────────────────────────── */
 @theme {
-  --color-ground: #23272c;
-  --color-ground-deep: #1b1e22;
-  --color-surface: #2b3036;
-  --color-ink: #ecf6f2;
-  --color-muted: #a6b8b1;
+  --color-ground: #0a0c0b;
+  --color-surface: #131716;
+  --color-surface-2: #1a1f1d;
+  --color-ink: #f2f7f5;
+  --color-muted: #8f9c97;
   --color-mint: #b6ffe9;
   --color-mint-soft: #dbfbf1;
   --color-green: #1e755a;
-  --color-field: #0f3a2d;
-  --color-on-mint: #0d2a21;
-  --color-line: rgb(182 255 233 / 0.14);
-  --color-line-strong: rgb(182 255 233 / 0.32);
+  --color-field: #0d3a2c;
+  --color-on-mint: #08231b;
+  --color-line: rgb(242 247 245 / 0.08);
+  --color-line-strong: rgb(242 247 245 / 0.16);
 
-  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
-  --font-pixel: 'Silkscreen', 'JetBrains Mono Variable', monospace;
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
-  --container-page: 84rem;
+  --container-page: 88rem;
 }
 
 @layer base {
   html {
-    background: var(--color-ground);
-    color: var(--color-ink);
+    /* --page-bg / --page-fg follow the section in view (see App.jsx). */
+    --page-bg: var(--color-ground);
+    --page-fg: var(--color-ink);
+    background: var(--page-bg);
+    color: var(--page-fg);
+    transition:
+      background-color 900ms var(--ease-out),
+      color 900ms var(--ease-out);
     font-family: var(--font-sans);
-    font-variation-settings: 'wdth' 100;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-padding-top: 5rem;
     -webkit-tap-highlight-color: transparent;
+    scrollbar-color: rgb(182 255 233 / 0.3) transparent;
+    scrollbar-width: thin;
   }
   @media (prefers-reduced-motion: no-preference) {
     html:not(.lenis) {
@@ -50,6 +55,7 @@
     min-height: 100svh;
     overflow-x: clip;
     line-height: 1.55;
+    font-size: 1.0625rem;
   }
   ::selection {
     background: var(--color-mint);
@@ -58,7 +64,7 @@
   :focus-visible {
     outline: 2px solid var(--color-mint);
     outline-offset: 3px;
-    border-radius: 2px;
+    border-radius: 6px;
   }
   img {
     display: block;
@@ -72,33 +78,14 @@
   p {
     text-wrap: pretty;
   }
-  /* Themed scrollbar */
-  html {
-    scrollbar-color: rgb(182 255 233 / 0.35) var(--color-ground-deep);
-    scrollbar-width: thin;
-  }
 }
 
 /* ── Type ────────────────────────────────────────────────────────────── */
 @utility font-display {
   font-family: var(--font-sans);
-  font-variation-settings: 'wdth' 118;
-  font-weight: 760;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
-}
-@utility font-wide {
-  font-variation-settings: 'wdth' 112;
-}
-
-@utility statement {
-  font-variation-settings: 'wdth' 108;
-  font-weight: 560;
-  font-size: clamp(1.6rem, 3.6vw, 2.75rem);
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-  color: var(--color-ink);
-  max-width: 30ch;
+  font-weight: 600;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
 }
 
 /* ── Layout ──────────────────────────────────────────────────────────── */
@@ -106,7 +93,7 @@
   width: 100%;
   max-width: var(--container-page);
   margin-inline: auto;
-  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
 }
 
 /* ── Controls ────────────────────────────────────────────────────────── */
@@ -115,23 +102,23 @@
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  min-height: 3rem;
-  padding: 0 1.4rem;
+  min-height: 3.25rem;
+  padding: 0 1.5rem;
   border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.005em;
+  font-weight: 500;
+  font-size: 0.975rem;
+  letter-spacing: -0.01em;
   white-space: nowrap;
   transition:
-    background-color 200ms ease,
-    color 200ms ease,
-    border-color 200ms ease,
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
     transform 160ms var(--ease-out);
   &:active {
     transform: scale(0.97);
   }
   & svg {
-    transition: transform 240ms var(--ease-out);
+    transition: transform 300ms var(--ease-out);
   }
   @media (hover: hover) {
     &:hover svg {
@@ -144,17 +131,17 @@
   color: var(--color-on-mint);
   @media (hover: hover) {
     &:hover {
-      background: var(--color-mint-soft);
+      background: #ffffff;
     }
   }
 }
-@utility btn-line {
-  border: 1px solid var(--color-line-strong);
+@utility btn-ghost {
+  background: rgb(242 247 245 / 0.07);
   color: var(--color-ink);
+  backdrop-filter: blur(12px);
   @media (hover: hover) {
     &:hover {
-      border-color: var(--color-mint);
-      color: var(--color-mint);
+      background: rgb(242 247 245 / 0.13);
     }
   }
 }
@@ -163,120 +150,22 @@
   color: var(--color-mint);
   @media (hover: hover) {
     &:hover {
-      background: var(--color-field);
+      background: #000;
     }
   }
 }
 
-/* Underline that draws in on hover */
 @utility link-draw {
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 0% 1px;
   background-position: 0 100%;
   background-repeat: no-repeat;
-  transition: background-size 300ms var(--ease-out);
+  transition: background-size 400ms var(--ease-out);
   @media (hover: hover) {
     &:hover {
       background-size: 100% 1px;
     }
   }
-}
-
-/* Blueprint plate: thin frame with corner ticks */
-@utility plate {
-  position: relative;
-  border: 1px solid var(--color-line-strong);
-  padding: 0.5rem;
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border-color: var(--color-mint);
-    pointer-events: none;
-  }
-  &::before {
-    top: -1px;
-    left: -1px;
-    border-top: 2px solid;
-    border-left: 2px solid;
-  }
-  &::after {
-    bottom: -1px;
-    right: -1px;
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-  }
-}
-
-/* Faint blueprint grid used as a section ground */
-@utility grid-ground {
-  background-image:
-    linear-gradient(var(--color-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  background-position: center top;
-}
-
-/* Typewriter caret */
-@keyframes caret {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-@utility caret {
-  animation: caret 1s steps(1) infinite;
-}
-
-@keyframes scrollcue {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(200%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* ── Pixel soul ──────────────────────────────────────────────────────── */
-
-/* 8-bit "rounded" corners: three pixel steps instead of a curve. */
-@utility pixel-corners {
-  --px: 6px;
-  clip-path: polygon(
-    0 calc(var(--px) * 3), var(--px) calc(var(--px) * 3), var(--px) var(--px),
-    calc(var(--px) * 3) var(--px), calc(var(--px) * 3) 0,
-    calc(100% - var(--px) * 3) 0, calc(100% - var(--px) * 3) var(--px),
-    calc(100% - var(--px)) var(--px), calc(100% - var(--px)) calc(var(--px) * 3),
-    100% calc(var(--px) * 3), 100% calc(100% - var(--px) * 3),
-    calc(100% - var(--px)) calc(100% - var(--px) * 3), calc(100% - var(--px)) calc(100% - var(--px)),
-    calc(100% - var(--px) * 3) calc(100% - var(--px)), calc(100% - var(--px) * 3) 100%,
-    calc(var(--px) * 3) 100%, calc(var(--px) * 3) calc(100% - var(--px)),
-    var(--px) calc(100% - var(--px)), var(--px) calc(100% - var(--px) * 3),
-    0 calc(100% - var(--px) * 3)
-  );
-}
-@utility pixel-corners-sm {
-  --px: 3px;
-}
-
-@utility pixelated {
-  image-rendering: pixelated;
 }
 
 /* Film grain over the whole page, for a printed, premium texture. */
@@ -285,7 +174,7 @@
   inset: -50%;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.06;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   animation: grain 1.2s steps(4) infinite;
 }
@@ -297,21 +186,12 @@
   100% { transform: translate(0, 0); }
 }
 
-/* Twinkling pixel stars */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.15; }
-  50% { opacity: 0.9; }
-}
-@utility twinkle {
-  animation: twinkle var(--tw, 3s) steps(3) infinite;
-  animation-delay: var(--td, 0s);
-}
-
-/* Floating sprite bob, in pixel steps */
-@keyframes bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-@utility bob {
-  animation: bob 2.4s steps(4) infinite;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
