@@ -27,9 +27,9 @@ with each product's own colour (`tint` in `projects.json`).
 
 ## Hero
 
-Deep space (`Starfield.jsx`): pixel stars drift at three depths around a
-slowly moving green nebula, lean with the mouse and streak when scrolling
-fast. The gamer tag sits under the name as a small player tag: "aka rwifoo".
+A green light from above whose edges break up into nebula dust, fringed with
+violet, magenta and deep blue (`Nebula.jsx`, a small WebGL shader rendered at
+half resolution, paused off-screen, CSS glow fallback). The gamer tag sits under the name as a small player tag: "aka rwifoo".
 
 ## Signature: pixel-particle name
 

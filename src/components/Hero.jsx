@@ -5,7 +5,7 @@ import { EMAIL, SOCIALS } from '../lib/socials';
 import { Magnetic } from './Fx';
 import { ArrowDown, ArrowUpRight } from './Icons';
 import ParticleName from './ParticleName';
-import Starfield from './Starfield';
+import Nebula from './Nebula';
 
 const rise = (delay, ready) => ({
   initial: { opacity: 0, y: 28, filter: 'blur(8px)' },
@@ -29,9 +29,9 @@ export default function Hero({ ready, burst }) {
       aria-labelledby="hero-title"
       className="relative flex min-h-[100svh] flex-col overflow-hidden pt-28"
     >
-      {/* deep space: drifting pixel stars and a green nebula */}
+      {/* green light from above, its edges breaking into nebula dust */}
       <motion.div className="absolute inset-0" style={reduced ? undefined : { y: spaceY }}>
-        <Starfield />
+        <Nebula />
       </motion.div>
 
       <div className="page relative flex flex-1 flex-col justify-center">
